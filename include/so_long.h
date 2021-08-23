@@ -6,8 +6,11 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include "../minilibx_mms_20210621/mlx.h"
-# include "../get_next_line/get_next_line.h"
+# include "get_next_line.h"
 # include "../libft/libft.h"
+
+# define TILE_SIZE 32
+# define BUFFER_SIZE 1
 
 typedef struct s_vars
 {
@@ -53,6 +56,14 @@ typedef struct s_tile
 /* initiate struct values */
 void	map_value_init(t_map *map);
 
-
 #endif
+
+
+
+/* map functions */
+// マップ読み込む
+// マップのチェック
+// マップのマロック
+// マップ
+
 
