@@ -1,3 +1,10 @@
+-- include
+libft
+get_next_line
+
+
+
+
 -- window
 • The management of your window must remain smooth: changing to another window, minimizing, etc.
 • You will use a 2D view (top-down or profile).
@@ -44,10 +51,7 @@ draw map
 		()
 
 
-
-
 -- key input
-
 
 
 
