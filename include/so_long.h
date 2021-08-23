@@ -3,7 +3,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-// # include mlx.h
+# include "minilibx_mms_20210621/mlx.h"
+
+
 
 // image struct
 // tile struct
