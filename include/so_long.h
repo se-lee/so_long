@@ -15,8 +15,6 @@ typedef struct s_vars
 	void	*win;
 }	t_vars;
 
-
-// image struct
 typedef struct s_image
 {
 	void	*img_ptr;
@@ -28,8 +26,6 @@ typedef struct s_image
 	int		endian;
 }	t_image;
 
-
-// map struct
 typedef struct s_map
 {	
 	int		row;
@@ -40,6 +36,12 @@ typedef struct s_map
 }	t_map;
 
 // tile struct
+typedef struct s_tile
+{
+	t_image	wall;
+	t_image	exit;
+	t_image	collect;
+}		t_tile;
 // coordinate struct
 // player struct
 // collectible struct
