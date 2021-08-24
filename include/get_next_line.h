@@ -8,9 +8,7 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+# define BUFFER_SIZE 1
 
 int		get_next_line(int fd, char **line);
 

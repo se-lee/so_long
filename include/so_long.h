@@ -6,8 +6,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include "../minilibx_mms_20210621/mlx.h"
-# include "get_next_line.h"
 # include "../libft/libft.h"
+# include "get_next_line.h"
 
 # define TILE_SIZE 32
 # define BUFFER_SIZE 1
@@ -45,16 +45,14 @@ typedef struct s_tile
 	t_image	exit;
 	t_image	collect;
 }		t_tile;
+
 // coordinate struct
 // player struct
 // collectible struct
 // 
-
 // initiate images (xpm_to_img function)
 // 
-
 /* initiate struct values */
-void	map_value_init(t_map *map);
 
 #endif
 
