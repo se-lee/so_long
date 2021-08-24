@@ -1,0 +1,25 @@
+#include "include/so_long.h"
+
+/* exit with esc key */
+int	exit_hook()
+{
+	exit(0);
+}
+
+int	exit_with_esc_key(int esc_keycode, t_identifier *id)
+{
+	if (esc_keycode == 53)
+	{
+		mlx_destroy_window(id->mlx, id->win);
+		exit(0);
+	}
+	return (0);
+}
+
+/* exit with red cross button */
+
+void	exit_game(t_identifier *id)
+{
+	mlx_key_hook(id->win, exit_with_esc_key, &id);
+	mlx_hook(id->win, 17, 0, exit_hook, 0);
+}

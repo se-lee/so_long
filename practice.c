@@ -11,7 +11,7 @@ void	my_mlx_pixel_put(t_image *data, int x, int y) //, int color)
 
 int	main()
 {
-	t_vars	vars;
+	t_identifier	vars;
 	t_image	img;
 	int		i;
 	int		j;
@@ -52,6 +52,7 @@ int	main()
 	// }
 
 	mlx_put_image_to_window(vars.mlx, vars.win, img.img_ptr, 0, 0);
+	exit_game(&vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }

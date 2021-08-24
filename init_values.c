@@ -2,7 +2,7 @@
 
 void	map_value_init(t_map *map)
 {
-	map->row = 0;
-	map->column = 0;
+	map->row_count = 0;
+	map->column_count = 0;
 }
 

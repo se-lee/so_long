@@ -12,11 +12,11 @@
 # define TILE_SIZE 32
 # define BUFFER_SIZE 1  // いらないかも
 
-typedef struct s_vars
+typedef struct s_identifier
 {
 	void	*mlx;
 	void	*win;
-}	t_vars;
+}	t_identifier;
 
 typedef struct s_image
 {
@@ -31,14 +31,20 @@ typedef struct s_image
 
 typedef struct s_map
 {	
-	int		row;
-	int		column;
-
-	// compositions (1, 0, P, E, C,)
-
+	char	**map_arr;
+	int		row_count;
+	int		column_count;
 }	t_map;
 
-// tile struct
+typedef struct s_map_compo
+{
+	int	wall;
+	int	free_space;
+	int	player_position;
+	int	exit_position;
+	int	collec_position;
+}	s_map_compo;
+
 typedef struct s_tile
 {
 	t_image	wall;
@@ -49,10 +55,17 @@ typedef struct s_tile
 // coordinate struct
 // player struct
 // collectible struct
+
+
+
+
 // 
 // initiate images (xpm_to_img function)
 // 
 /* initiate struct values */
+
+
+void	exit_game(t_identifier *id);
 
 #endif
 

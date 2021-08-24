@@ -6,16 +6,16 @@ void	map_count_row_and_column(int fd, t_map *map)
 	char	buff;
 	int		temp;
 
-	map->row = 0;
-	map->column = 0;
+	map->row_count = 0;
+	map->column_count = 0;
 	temp = 0;
 	while (read(fd, &buff, 1) > 0)
 	{
-		if (map->column < temp)
-			map->column = temp;
+		if (map->column_count < temp)
+			map->column_count = temp;
 		if (buff == '\n')
 		{
-			map->row++;
+			map->row_count++;
 			temp = 0;
 		}
 		else
@@ -31,16 +31,17 @@ void	map_count_row_and_column(int fd, t_map *map)
 	// map->row++;
 }
 /* check malloc -- make sure where mallocs are used in gnl funct. */
+
 void	map_malloc(int fd, t_map *map)
 {
 	char	**map_arr;
 	int		i;
 
 	i = 0;
-	map_arr = (char **)malloc(sizeof(char *) * map->row);
-	while (i < map->row)
+	map_arr = (char **)malloc(sizeof(char *) * map->row_count);
+	while (i < map->row_count)
 	{
-		map_arr[i] = (char *)malloc(sizeof(char) * map->column);
+		map_arr[i] = (char *)malloc(sizeof(char) * map->column_count);
 		i++;
 	}
 }
@@ -58,7 +59,7 @@ int main()
 	t_map map;
 
 	map_read("map.ber", &map);
-	printf("row: %d\n", map.row);
-	printf("column: %d\n", map.column);
+	printf("row: %d\n", map.row_count);
+	printf("column: %d\n", map.column_count);
 	return (0);
 }
