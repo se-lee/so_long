@@ -10,7 +10,7 @@
 # include "get_next_line.h"
 
 # define TILE_SIZE 32
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 1  // いらないかも
 
 typedef struct s_vars
 {
