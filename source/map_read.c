@@ -54,6 +54,12 @@ int		map_read(char *map_filename, t_map *map)
 	return (1);
 }
 
+char **map_get_lines(t_map *map, char *map_filename)
+{
+	
+}
+
+
 int main()
 {
 	t_map map;

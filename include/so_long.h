@@ -12,6 +12,18 @@
 # define TILE_SIZE 32
 # define BUFFER_SIZE 1  // いらないかも
 
+/* keycode */
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_ESC 53
+# define KEY_ARROW_UP 126
+# define KEY_ARROW_DOWN 125
+# define KEY_ARROW_LEFT 123
+# define KEY_ARROW_RIGHT 124
+
+
 typedef struct s_identifier
 {
 	void	*mlx;
@@ -52,6 +64,14 @@ typedef struct s_tile
 	t_image	collect;
 }		t_tile;
 
+typedef struct s_move
+{
+	int	up_count;
+	int	down_count;
+	int	left_count;
+	int	right_count;
+}	t_move;
+
 // coordinate struct
 // player struct
 // collectible struct
@@ -63,18 +83,9 @@ typedef struct s_tile
 // initiate images (xpm_to_img function)
 // 
 /* initiate struct values */
+int		map_format_is_correct(t_map *map);
 
 
 void	exit_game(t_identifier *id);
 
 #endif
-
-
-
-/* map functions */
-// マップ読み込む
-// マップのチェック
-// マップのマロック
-// マップ
-
-
