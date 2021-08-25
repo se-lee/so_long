@@ -10,6 +10,7 @@ void	my_mlx_pixel_put(t_image *data, int x, int y, int color)
 	*(unsigned int*)dest = color;
 }
 
+/*
 int	main()
 {
 	t_identifier id;
@@ -42,3 +43,4 @@ printf("i: %d\n", i);
 	mlx_loop(id.mlx);
 	return (0);
 }
+*/

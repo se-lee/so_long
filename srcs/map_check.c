@@ -22,6 +22,7 @@ int		map_is_walled(t_map *map)
 	int	j;
 	
 	j = 0;
+	i = 0;
 	while (j < map->column_count)
 	{
 		if (map->map_arr[0][j] != 1 || map->map_arr[map->row_count - 1][j] != 1)

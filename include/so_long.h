@@ -5,9 +5,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <limits.h>
 # include "../minilibx_mms_20210621/mlx.h"
 # include "../libft/libft.h"
-# include "get_next_line.h"
 
 # define TILE_SIZE 32
 # define BUFFER_SIZE 1  // いらないかも
@@ -22,6 +22,8 @@
 # define KEY_ARROW_DOWN 125
 # define KEY_ARROW_LEFT 123
 # define KEY_ARROW_RIGHT 124
+
+/* assets / map files */
 
 
 typedef struct s_identifier
@@ -95,13 +97,23 @@ typedef struct s_collect
 //	t_image	c_image;??
 }	t_collect;
 
-
 // initiate images (xpm_to_img function)
 
+
+/*
+maybe make a struct the includes all structs above 
+because passing too many variables are tiring
+and i can only declare upto 5 variables in a function/
+
+*/ 
+
+
 /* Map functions */
+int		get_next_line(int fd, char **line);
 int		map_format_is_correct(t_map *map);
 void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);
+void	map_draw_background(t_identifier *id, t_image *img, t_map *map, t_tile *tile);
 
 void	exit_game(t_identifier *id);
 
