@@ -70,6 +70,17 @@ draw map
 
 -- get fissshhhhhh (collectible)
 
+how to tell all collectibles are collected
+count down until zero ("to_be_collected")
+
+
+idea 1):linked list?
+Cの数だけNodesをつくって、同じ座標に重なったら一つずつ消していく
+
+
+Collision
+これがおきたら自動的にCollectibleの絵が消えてほしい。ぽん。
+
 
 -- exit
 - esc key

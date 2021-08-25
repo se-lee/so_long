@@ -17,30 +17,69 @@ CorrespondするCharが何か判断して
 
 */
 
+void 	map_get_player_coordinate(t_map *map, t_player *player)
+{
+	int	i;
+	int	j;
 
-/* set player coordinate */
+	i = 0;
+	while (i < map->row_count)
+	{
+		j = 0;
+		while (j < map->column_count)
+		{
+			if (map->map_arr[i][j] == 'P')
+			{
+				player->p_coordi.x = j;
+				player->p_coordi.y = i;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
+void	map_get_collec_coordinate(t_map *map, t_collect *collect)
+{
+	int		i;
+	int		j;
 
+	i = 0;
+	while (i < map->row_count)
+	{
+		j = 0;
+		while (j < map->column_count)
+		{
+			if (map->map_arr[i][j] == 'C')
+			{
+				collect->c_coordi.x = j;
+				collect->c_coordi.y = i;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
+void	map_get_coodinate(t_map *map, t_player *player, t_collect *collect)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < map->row_count)
+	{
+		j = 0;
+		while (j < map->column_count)
+		{
+			if (map->map_arr[i][j] == 'P')
+		}
+		i++;
+	}
+}
 
 
 /* set exit coordinate */
-
-
-
-
-
-/* set collec coordinate */
-
-
-
-
-
-
-
-
-
-
 
 
 

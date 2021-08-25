@@ -73,18 +73,33 @@ typedef struct s_move
 }	t_move;
 
 // coordinate struct
-// player struct
-// collectible struct
+typedef struct s_coordinate
+{
+	int		x;
+	int		y;
+}	t_coordinate;
+
+typedef struct s_player
+{
+	t_coordinate p_coordi;
+	int		p_move_count;
+//	t_image	p_image; ??
+}	t_player;
+
+typedef struct s_collect
+{
+	t_coordinate c_coordi;
+	int		c_count;
+//	t_image	c_image;??
+}	t_collect;
 
 
-
-
-// 
 // initiate images (xpm_to_img function)
-// 
-/* initiate struct values */
-int		map_format_is_correct(t_map *map);
 
+/* Map functions */
+int		map_format_is_correct(t_map *map);
+void	map_malloc(int fd, t_map *map);
+void	map_read(char *map_filename, t_map *map);
 
 void	exit_game(t_identifier *id);
 
