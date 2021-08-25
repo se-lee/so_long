@@ -1,5 +1,5 @@
-#include "include/so_long.h"
-#include "game_assets/test_green32.xpm"
+#include "../include/so_long.h"
+#include "../assets_xpm/test_green32.xpm"
 
 void	my_mlx_pixel_put(t_image *data, int x, int y) //, int color)
 {

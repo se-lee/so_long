@@ -1,8 +1,8 @@
-#include "include/so_long.h"
+#include "../include/so_long.h"
+
 
 void	map_count_row_and_column(int fd, t_map *map)
 {
-//	char	*line;
 	char	buff;
 	int		temp;
 
@@ -21,51 +21,65 @@ void	map_count_row_and_column(int fd, t_map *map)
 		else
 			temp++;
 	}
-/* i feel i'm malloc-ing too much */
-	// while (get_next_line(fd, &line) > 0)
-	// {
-	// 	map->row++;
-	// 	map->column = ft_strlen(line);
-	// 	free(line);
-	// }
-	// map->row++;
 }
-/* check malloc -- make sure where mallocs are used in gnl funct. */
 
 void	map_malloc(int fd, t_map *map)
 {
-	char	**map_arr;
 	int		i;
 
 	i = 0;
-	map_arr = (char **)malloc(sizeof(char *) * map->row_count);
+
+	map->map_arr = NULL;
+	map_count_row_and_column(fd, map);
+	map->map_arr = malloc(sizeof(char *) * map->row_count);
 	while (i < map->row_count)
 	{
-		map_arr[i] = (char *)malloc(sizeof(char) * map->column_count);
+		map->map_arr[i] = malloc(sizeof(char) * map->column_count);
 		i++;
 	}
 }
 
-int		map_read(char *map_filename, t_map *map)
+void		map_read(char *map_filename, t_map *map)
 {
-	int	fd;
+	char	*line;
+	int		fd;
+	int		i;
+	int		j;
+
+	i = 0;
 	fd = open(map_filename, O_RDONLY);
-	map_count_row_and_column(fd, map);
-	return (1);
+	while (get_next_line(fd, &line) > 0)
+	{
+		j = 0;
+		while (j < map->column_count)
+		{
+			map->map_arr[i][j] = line[j];
+			j++;
+		}
+		i++;
+		free(line);
+	}
+	free(line);
+	close(fd);
 }
-
-char **map_get_lines(t_map *map, char *map_filename)
-{
-	
-}
-
 
 int main()
 {
 	t_map map;
+	int		i;
+	int		fd;
 
-	map_read("map.ber", &map);
+	i = 0;
+	fd = open("map_ber/map.ber", O_RDONLY);
+	map_malloc(fd, &map);
+	close(fd);
+	map_read("map_ber/map.ber", &map);
 	printf("row: %d\n", map.row_count);
 	printf("column: %d\n", map.column_count);
+	while (i < map.row_count)
+	{
+		printf("map[%d]: %s \n", i, map.map_arr[i]);
+		i++;
+	}
 	return (0);
 }

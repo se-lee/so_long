@@ -38,6 +38,10 @@ int		map_is_walled(t_map *map)
 	return (1);
 }
 
+/* check if components are correct 1, 0, P, E, C */
+int		map_compo_is_correct();
+
+
 int		map_format_is_correct(t_map *map)
 {
 	if (!map_is_rectangular)
@@ -46,4 +50,3 @@ int		map_format_is_correct(t_map *map)
 		return (0);
 	return (1);
 }
-
