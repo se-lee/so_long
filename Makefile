@@ -1,6 +1,7 @@
+NAME	= so_long
 HEADER	= so_long.h
-SRC		= srcs
 INC		= include
+SRC		= srcs
 BIN		= objs
 SRCS	=	map_read.c\
 			map_check.c\
@@ -10,8 +11,7 @@ SRCS	=	map_read.c\
 			get_next_line.c\
 			main.c\
 
-OBJS		= $(addprefix $(BIN)/, $(SRCS:%.c=%.o))
-NAME	= so_long
+OBJS	= $(addprefix $(BIN)/, $(SRCS:%.c=%.o))
 LIBFT	= libft
 LIBFT_FILE = $(LIBFT)/libft.a
 CC		= cc
@@ -21,11 +21,11 @@ CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework
 
 all:	init $(NAME)
 
-$(BIN)/%.o:	$(SRC)/%.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+$(BIN)/%.o:	$(SRC)/%.c #$(HEADER) $(LIBFT)/libft.h
+	$(CC) $(CFLAGS) -c $< -Iinclude -Ilibft -o $@
 
 $(NAME):	$(OBJS)
-	$(CC) $(CLFAGS) $(CLIB) $($(SRC)/$(SRCS)) -o $(NAME)
+	$(CC) $(CLFAGS) $(CLIB) $($(BIN)/$(OBJS)) -L $(LIBFT_FILE) -o $(NAME)
 	install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
 
 $(LIBFT_FILE):	init
