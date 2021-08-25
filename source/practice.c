@@ -21,6 +21,8 @@ int	main()
 	img.width = 640;
 	img.height = 256;
 	vars.win = mlx_new_window(vars.mlx, img.width, img.height, "test");
+	img.img_ptr = mlx_xpm_file_to_image(vars.mlx, relative_path, &img.width, &img.height);
+	img.addr = mlx_get_data_addr(img.img_ptr, &img.bits_per_pixel, &img.line_length, &img.endian);
 	
 	i = 0;
 	j = 0;
@@ -29,8 +31,6 @@ int	main()
 		j = 0;
 		while (j < img.width - 32)
 		{
-	img.img_ptr = mlx_xpm_file_to_image(vars.mlx, relative_path, &img.width, &img.height);
-	img.addr = mlx_get_data_addr(img.img_ptr, &img.bits_per_pixel, &img.line_length, &img.endian);
 			my_mlx_pixel_put(&img, j, i); //, 0x70C9A1);
 			j = j + TILE_SIZE;
 		}

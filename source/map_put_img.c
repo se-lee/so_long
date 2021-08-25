@@ -14,8 +14,9 @@ else error
 
 */
 
-void	map_put_tile(t_identifier *id, t_map *map, int x, int y)
+void	map_put_tile
+	(t_identifier *id, t_image *img, t_map *map, int x, int y)
 {
-	mlx_put_image_to_window(id->mlx, id->win, )
+	mlx_put_image_to_window(id->mlx, id->win, img->img_ptr, x * TILE_SIZE, y * TILE_SIZE);
 }
 

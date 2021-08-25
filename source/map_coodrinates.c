@@ -61,23 +61,6 @@ void	map_get_collec_coordinate(t_map *map, t_collect *collect)
 	}
 }
 
-void	map_get_coodinate(t_map *map, t_player *player, t_collect *collect)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < map->row_count)
-	{
-		j = 0;
-		while (j < map->column_count)
-		{
-			if (map->map_arr[i][j] == 'P')
-		}
-		i++;
-	}
-}
-
 
 /* set exit coordinate */
 
