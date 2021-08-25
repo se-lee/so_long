@@ -59,6 +59,8 @@ typedef struct s_map_compo
 
 typedef struct s_tile
 {
+	int		tile_width;
+	int		tile_height;
 	t_image	wall;
 	t_image	exit;
 	t_image	collect;
