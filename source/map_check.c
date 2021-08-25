@@ -1,4 +1,4 @@
-#include "include/so_long.h"
+#include "../include/so_long.h"
 
 int		map_is_rectangular(t_map *map)
 {
@@ -44,9 +44,15 @@ int		map_compo_is_correct();
 
 int		map_format_is_correct(t_map *map)
 {
-	if (!map_is_rectangular)
+	// if (!map_is_rectangular(map))
+	// {
+	// 	ft_putendl_fd("Map is not rectangle", 2);
+	// 	return (0);
+	// }
+	if (!map_is_walled(map))
+	{
+		ft_putendl_fd("Map is not walled", 2);
 		return (0);
-	if (!map_is_walled)
-		return (0);
+	}
 	return (1);
 }

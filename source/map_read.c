@@ -76,6 +76,7 @@ int main()
 	map_read("map_ber/map.ber", &map);
 	printf("row: %d\n", map.row_count);
 	printf("column: %d\n", map.column_count);
+	map_format_is_correct(&map);
 	while (i < map.row_count)
 	{
 		printf("map[%d]: %s \n", i, map.map_arr[i]);
