@@ -26,9 +26,18 @@ int	main()
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bits_per_pixel, &img.line_length, &img.endian);
 	color = 0x70C9A1;
 
-	my_mlx_pixel_put(&img, 0, 0, color);
-
-	mlx_put_image_to_window(id.mlx, id.win, img.img_ptr, 100, 100);
+	i = 0;
+	while (i < (TILE_SIZE * 7))
+	{
+printf("i: %d\n", i);
+		j = 0;
+		while (j < (TILE_SIZE * 15))
+		{
+			mlx_put_image_to_window(id.mlx, id.win, img.img_ptr, j, i);
+			j = j + TILE_SIZE;
+		}
+		i = i + TILE_SIZE;
+	}
 	exit_game(&id);
 	mlx_loop(id.mlx);
 	return (0);
