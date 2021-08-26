@@ -17,7 +17,9 @@ int main()
 	map_draw_wall_and_background(&id, &map, &tile);
 printf("row: %d  column: %d  \n", map.row_count, map.column_count);
 
+	mlx_key_hook(id.win, exit_with_esc_key, &id);
+
+//	exit_game(&id);
 	mlx_loop(id.mlx);
-	exit_game(&id);
 	return (0);
 }

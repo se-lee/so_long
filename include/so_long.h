@@ -124,6 +124,7 @@ int		map_format_is_correct(t_map *map);
 void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);
 void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile);
+int	exit_with_esc_key(int esc_keycode, t_identifier *id);
 
 void	exit_game(t_identifier *id);
 
