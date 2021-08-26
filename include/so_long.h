@@ -107,7 +107,6 @@ and i can only declare upto 5 variables in a function/
 
 */ 
 
-
 /* Map functions */
 int		get_next_line(int fd, char **line);
 int		map_format_is_correct(t_map *map);

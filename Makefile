@@ -1,32 +1,37 @@
 NAME	= so_long
 HEADER	= so_long.h
+
 INC		= include
-SRC		= srcs
-BIN		= objs
-SRCS	=	map_read.c\
+SRC_DIR	= srcs
+OBJ_DIR	= objs
+SRC		=	map_read.c\
+			main.c\
 			map_check.c\
 			map_draw.c\
 			map_coordinates.c\
 			move_key.c\
 			get_next_line.c\
-			main.c\
+			exit_game.c\
 
-OBJS	= $(addprefix $(BIN)/, $(SRCS:%.c=%.o))
+
+SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
+OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 LIBFT	= libft
 LIBFT_FILE = $(LIBFT)/libft.a
-CC		= cc
 RM		= rm -rf
+
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
 all:	init $(NAME)
 
-$(BIN)/%.o:	$(SRC)/%.c #$(HEADER) $(LIBFT)/libft.h
-	$(CC) $(CFLAGS) -c $< -Iinclude -Ilibft -o $@
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBFT)/libft.h
+	$(CC) $(CFLAGS) -c $< -Ilibft -o $@
 
-$(NAME):	$(OBJS)
-	$(CC) $(CLFAGS) $(CLIB) $($(BIN)/$(OBJS)) -L $(LIBFT_FILE) -o $(NAME)
-	install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
+$(NAME):	$(OBJS) $(LIBFT_FILE)
+	$(CC) $(CLFAGS) $(CLIB) $(SRCS) -I $(INC) $(LIBFT_FILE) -o $(NAME)
+#install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
 
 $(LIBFT_FILE):	init
 
@@ -47,3 +52,5 @@ fclean:	clean
 re:	fclean all
 
 .PHONY:	all clean fclean re init re_lib
+
+

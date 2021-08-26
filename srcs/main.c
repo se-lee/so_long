@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-int	main()
+int main()
 {
 	t_identifier id;
 	t_image		img;
@@ -17,5 +17,6 @@ int	main()
 	map_draw_background(&id, &img, &map, &tile);
 	mlx_loop(id.mlx);
 	exit_game(&id);
+	
 	return (0);
 }
