@@ -23,7 +23,6 @@ void	exit_game(t_identifier *id)
 	mlx_hook(id->win, 17, 0, exit_hook, 0);
 }
 
-
 /*
 when the window is closed with esc key, an error message comes up
 " quit unexpectedly "

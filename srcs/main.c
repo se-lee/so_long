@@ -3,7 +3,7 @@
 int main()
 {
 	t_identifier id;
-	t_image		img;
+//	t_image		img;
 	t_map		map;
 	t_tile		tile;
 	int			fd;
@@ -13,8 +13,12 @@ int main()
 	map_malloc(fd, &map);
 	close(fd);
 	map_read("map_ber/map.ber", &map);
-	id.win = mlx_new_window(id.mlx, TILE_SIZE * map.row_count, TILE_SIZE * map.column_count, "so_long");
-	map_draw_background(&id, &img, &map, &tile);
+	id.win = mlx_new_window(id.mlx, TILE_SIZE * map.column_count, TILE_SIZE * map.row_count, "so_long");
+	// map_draw_background(&id, &map, &tile);
+	// map_draw_wall(&id, &map, &tile);
+	map_draw_wall_and_background(&id, &map, &tile);
+printf("row: %d  column: %d  \n", map.row_count, map.column_count);
+
 	mlx_loop(id.mlx);
 	exit_game(&id);
 	

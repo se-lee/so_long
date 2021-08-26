@@ -60,6 +60,12 @@ void		map_read(char *map_filename, t_map *map)
 		free(line);
 	}
 	free(line);
+	i = 0;
+	while (i < map->row_count)
+	{
+		printf("map[%d]: %s \n", i, map->map_arr[i]);
+		i++;
+	}
 	close(fd);
 }
 
