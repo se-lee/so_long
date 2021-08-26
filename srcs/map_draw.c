@@ -25,5 +25,4 @@ void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile)
 		}
 		i++;
 	}
-	
 }
