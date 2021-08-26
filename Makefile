@@ -12,7 +12,7 @@ SRC		=	map_read.c\
 			move_key.c\
 			get_next_line.c\
 			exit_game.c\
-
+			free.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

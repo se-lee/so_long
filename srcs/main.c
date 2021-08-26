@@ -18,8 +18,7 @@ int main()
 printf("row: %d  column: %d  \n", map.row_count, map.column_count);
 
 	mlx_key_hook(id.win, exit_with_esc_key, &id);
-
-//	exit_game(&id);
+	free_map_arr(&map);
+	exit_game(&id);
 	mlx_loop(id.mlx);
-	return (0);
 }

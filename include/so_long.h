@@ -127,5 +127,5 @@ void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile);
 int	exit_with_esc_key(int esc_keycode, t_identifier *id);
 
 void	exit_game(t_identifier *id);
-
+void	free_map_arr(t_map *map);
 #endif
