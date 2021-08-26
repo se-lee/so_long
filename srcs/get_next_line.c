@@ -1,4 +1,4 @@
-#include "../include/get_next_line.h"
+#include "../include/so_long.h"
 
 void	clean_free(void **data)
 {

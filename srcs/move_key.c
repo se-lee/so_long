@@ -1,4 +1,4 @@
-#include "include/so_long.h"
+#include "../include/so_long.h"
 
 void	move_up();
 

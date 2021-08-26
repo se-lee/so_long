@@ -60,9 +60,16 @@ void		map_read(char *map_filename, t_map *map)
 		free(line);
 	}
 	free(line);
+	i = 0;
+	while (i < map->row_count)
+	{
+		printf("map[%d]: %s \n", i, map->map_arr[i]);
+		i++;
+	}
 	close(fd);
 }
 
+/*
 int main()
 {
 	t_map map;
@@ -84,6 +91,7 @@ int main()
 	}
 	return (0);
 }
+*/
 
 /*
 open / close を　Map_readにふくめてやるとうまく読み込めない。
