@@ -39,7 +39,10 @@ int		map_is_walled(t_map *map)
 }
 
 /* check if components are correct 1, 0, P, E, C */
-int		map_compo_is_correct();
+int		map_compo_is_correct(t_map *map)
+{
+	
+}
 
 
 int		map_format_is_correct(t_map *map)
