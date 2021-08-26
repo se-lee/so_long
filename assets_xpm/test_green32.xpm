@@ -1,16 +1,8 @@
 /* XPM */
-static char *test_grass[] = {
+static char *test_green[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 9 1 ",
-"  c #3DB188",
-". c #3DB189",
-"X c #6FC8A0",
-"o c #6FC9A0",
-"O c #6FC9A1",
 "+ c #70C9A1",
-"@ c #A0E0C0",
-"# c #A1E0C1",
-"$ c #A1E1C1",
 /* pixels */
 "++++++++++++++++++++++++++++++++",
 "++++++++++++++++++++++++++++++++",

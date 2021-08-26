@@ -5,7 +5,7 @@ static char *test_circle[] = {
 "  c None",
 ". c #3DB189",
 "X c #6FC8A0",
-"o c #FFFF00",
+"o c red",
 "O c #6FC9A1",
 "+ c #70C9A1",
 "@ c #A0E0C0",

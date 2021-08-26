@@ -13,27 +13,6 @@ else error
 ! need to know the coordinates (where to put what)
 */
 
-void	map_draw_background(t_identifier *id, t_map *map, t_tile *tile)
-{
-	int		i;
-	int		j;
-
-// put file path into header? or make it as a variable 
-	i = 0;
-	while (i < (TILE_SIZE * map->row_count))
-	{
-		j = 0;
-		while (j < (TILE_SIZE * map->column_count))
-		{
-			mlx_put_image_to_window(id->mlx, id->win, tile->background.img_ptr, j, i);
-			j = j + TILE_SIZE;
-		}
-		i = i + TILE_SIZE;
-	}
-}
-
-void	map_draw_wall(t_identifier *id, t_map *map, t_tile *tile);
-
 void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile)
 {
 	int	i;
@@ -59,10 +38,23 @@ void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile)
 	
 }
 
+void	map_draw_exit(t_identifier *id, t_map *map, t_tile *tile)
+{
+	int	i;
+	int	j;
 
+	tile->exit.img_ptr = mlx_xpm_file_to_image(id->mlx, )
+	i = 0;
+	while (i < map->row_count)
+	{
+		j = 0;
+		whie (j < map->column_count)
+		{
+			if (map->map_arr[i][j] == 'E')
+				
+			j++;
+		}
+		i++;
+	}
+}
 
-/*
-壁の部分だけを透明にするより、背景の色にあわせてあらかじめ作っておく
-
-
-*/
