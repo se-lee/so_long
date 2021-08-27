@@ -9,10 +9,7 @@ int	exit_hook()
 int	exit_with_esc_key(int esc_keycode, t_identifier *id)
 {
 	if (esc_keycode == KEY_ESC)
-	{
-		mlx_destroy_window(id->mlx, id->win);
 		exit(0);
-	}
 	return (0);
 }
 

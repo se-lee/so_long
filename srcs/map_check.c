@@ -22,40 +22,42 @@ int		map_is_walled(t_map *map)
 	int	j;
 	
 	j = 0;
-	i = 0;
 	while (j < map->column_count)
 	{
-		if (map->map_arr[0][j] != 1 || map->map_arr[map->row_count - 1][j] != 1)
+		if (map->map_arr[0][j] != '1' || map->map_arr[map->row_count - 1][j] != '1')
 			return (0);
 		j++;
 	}
+	i = 0;
 	if (map->row_count > 3)
-	while(map->map_arr[i])
 	{
-		if (map->map_arr[i][0] != 1 || map->map_arr[i][map->column_count - 1] != 1)
-			return (0);
-		i++;
+		while(map->map_arr[i])
+		{
+			if (map->map_arr[i][0] != '1' || map->map_arr[i][map->column_count - 1] != '1')
+				return (0);
+			i++;
+		}
 	}
 	return (1);
 }
 
 /* check if components are correct 1, 0, P, E, C */
-int		map_compo_is_correct(t_map *map)
-{
+// int		map_compo_is_correct(t_map *map)
+// {
 	
-}
+// }
 
 
 int		map_format_is_correct(t_map *map)
 {
-	// if (!map_is_rectangular(map))
-	// {
-	// 	ft_putendl_fd("Map is not rectangle", 2);
-	// 	return (0);
-	// }
+	if (!map_is_rectangular(map))
+	{
+		ft_putendl_fd("Map is not rectangle", 1);
+		return (0);
+	}
 	if (!map_is_walled(map))
 	{
-		ft_putendl_fd("Map is not walled", 2);
+		ft_putendl_fd("Map is not walled", 1);
 		return (0);
 	}
 	return (1);

@@ -1,6 +1,5 @@
 #include "../include/so_long.h"
 
-
 void	map_count_row_and_column(int fd, t_map *map)
 {
 	char	buff;
@@ -28,13 +27,11 @@ void	map_malloc(int fd, t_map *map)
 	int		i;
 
 	i = 0;
-
-	map->map_arr = NULL;
 	map_count_row_and_column(fd, map);
-	map->map_arr = malloc(sizeof(char *) * map->row_count);
+	map->map_arr = (char **)malloc(sizeof(char *) * map->row_count + 1);
 	while (i < map->row_count)
 	{
-		map->map_arr[i] = malloc(sizeof(char) * map->column_count);
+		map->map_arr[i] = (char *)malloc(sizeof(char) * map->column_count);
 		i++;
 	}
 }
@@ -51,7 +48,7 @@ void		map_read(char *map_filename, t_map *map)
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
-		while (j < map->column_count)
+		while (j < map->column_count + 1)
 		{
 			map->map_arr[i][j] = line[j];
 			j++;
@@ -60,12 +57,6 @@ void		map_read(char *map_filename, t_map *map)
 		free(line);
 	}
 	free(line);
-	i = 0;
-	while (i < map->row_count)
-	{
-		printf("map[%d]: %s \n", i, map->map_arr[i]);
-		i++;
-	}
 	close(fd);
 }
 
@@ -83,7 +74,8 @@ int main()
 	map_read("map_ber/map.ber", &map);
 	printf("row: %d\n", map.row_count);
 	printf("column: %d\n", map.column_count);
-	map_format_is_correct(&map);
+	// if (!map_format_is_correct(&map))
+	// 	return (0);
 	while (i < map.row_count)
 	{
 		printf("map[%d]: %s \n", i, map.map_arr[i]);

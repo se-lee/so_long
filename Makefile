@@ -21,8 +21,10 @@ LIBFT_FILE = $(LIBFT)/libft.a
 RM		= rm -rf
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
-CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+CFLAGS	= #-Wall -Wextra -Werror
+CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_mms_20210621 -lmlx -framework OpenGL -framework AppKit
+
+#CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
 all:	init $(NAME)
 
