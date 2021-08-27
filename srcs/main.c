@@ -7,6 +7,7 @@ int main()
 	t_tile		tile;
 	int			fd;
 	int			i;
+	int			j;
 	char		*path;
 
 	path = "map_ber/map.ber";
@@ -16,18 +17,7 @@ int main()
 	close(fd);
 	map_read(path, &map);
 	id.win = mlx_new_window(id.mlx, TILE_SIZE * map.column_count, TILE_SIZE * map.row_count, "so_long");
-printf("row: %d  column: %d  \n", map.row_count, map.column_count);
-	i = 0;
-	while(map.map_arr[i])
-	{
-		printf("map[%d]: %s\n", i, map.map_arr[i]);
-		i++;
-	}
-	map_draw_background(&id, &map, &tile);
-	// map_draw_wall(&id, &map, &tile);
-//	map_draw_wall_and_background(&id, &map, &tile);
-
-	free_map_arr(&map);
+	map_draw_wall_and_background(&id, &map, &tile);
 	exit_game(&id);
 	mlx_loop(id.mlx);
 	
