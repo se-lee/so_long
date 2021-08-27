@@ -10,4 +10,5 @@ void	free_map_arr(t_map *map)
 		free(map->map_arr[i]);
 		i++;
 	}
+	free(map->map_arr);
 }

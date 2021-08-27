@@ -28,10 +28,11 @@ void	map_malloc(int fd, t_map *map)
 
 	i = 0;
 	map_count_row_and_column(fd, map);
-	map->map_arr = (char **)malloc(sizeof(char *) * map->row_count + 1);
+	map->map_arr = (char **)malloc(sizeof(char *) * map->row_count);
+printf("row: %d, column: %d\n", map->row_count, map->column_count);
 	while (i < map->row_count)
 	{
-		map->map_arr[i] = (char *)malloc(sizeof(char) * map->column_count);
+		map->map_arr[i] = (char *)malloc(sizeof(char) * map->column_count + 1);
 		i++;
 	}
 }
@@ -59,7 +60,7 @@ void		map_read(char *map_filename, t_map *map)
 	free(line);
 	close(fd);
 }
-
+ 
 /*
 int main()
 {

@@ -6,7 +6,7 @@ int	exit_hook()
 	exit(0);
 }
 
-int	exit_with_esc_key(int esc_keycode, t_identifier *id)
+int	exit_with_esc_key(int esc_keycode)
 {
 	if (esc_keycode == KEY_ESC)
 		exit(0);

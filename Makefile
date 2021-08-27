@@ -12,6 +12,7 @@ SRC		=	map_read.c\
 			move_key.c\
 			get_next_line.c\
 			exit_game.c\
+			draw.c\
 			free.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
@@ -21,9 +22,8 @@ LIBFT_FILE = $(LIBFT)/libft.a
 RM		= rm -rf
 
 CC		= cc
-CFLAGS	= #-Wall -Wextra -Werror
-CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_mms_20210621 -lmlx -framework OpenGL -framework AppKit
-
+CFLAGS	= -g -fsanitize=address #-Wall -Wextra -Werror
+CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework Metal -framework MetalKit
 #CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
 all:	init $(NAME)
@@ -54,5 +54,3 @@ fclean:	clean
 re:	fclean all
 
 .PHONY:	all clean fclean re init re_lib
-
-

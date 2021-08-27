@@ -3,6 +3,7 @@ static char *test_green[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 9 1 ",
 "+ c #70C9A1",
+"  c #70C9A1",
 /* pixels */
 "++++++++++++++++++++++++++++++++",
 "++++++++++++++++++++++++++++++++",

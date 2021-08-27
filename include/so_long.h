@@ -6,7 +6,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <limits.h>
-# include "../minilibx_mms_20210621/mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
+# include "../minilibx_mms_20200219/mlx.h"
 # include "../libft/libft.h"
 
 # define TILE_SIZE 32
@@ -124,8 +125,8 @@ void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);
 void	map_draw_background(t_identifier *id, t_map *map, t_tile *tile);
 void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile);
-int	exit_with_esc_key(int esc_keycode, t_identifier *id);
-
+int	exit_with_esc_key(int esc_keycode);
+void		draw_32(t_identifier *id, t_image *img, int x, int y);
 void	exit_game(t_identifier *id);
 void	free_map_arr(t_map *map);
 #endif
