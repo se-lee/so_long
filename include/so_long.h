@@ -26,11 +26,11 @@
 
 /* assets / map files */
 
-typedef struct s_identifier
+typedef struct s_id
 {
 	void	*mlx;
 	void	*win;
-}	t_identifier;
+}	t_id;
 
 typedef struct s_image
 {
@@ -66,7 +66,7 @@ typedef struct s_tile
 	t_image	wall;
 	t_image	exit;
 	t_image	collect;
-	t_image	background;
+	t_image	space;
 }		t_tile;
 
 typedef struct s_move
@@ -123,10 +123,10 @@ int		get_next_line(int fd, char **line);
 int		map_format_is_correct(t_map *map);
 void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);
-void	map_draw_background(t_identifier *id, t_map *map, t_tile *tile);
-void	map_draw_wall_and_background(t_identifier *id, t_map *map, t_tile *tile);
-int	exit_with_esc_key(int esc_keycode);
-void		draw_32(t_identifier *id, t_image *img, int x, int y);
-void	exit_game(t_identifier *id);
+void	map_draw_background(t_id *id, t_map *map, t_tile *tile);
+void	map_draw_wall_and_background(t_id *id, t_map *map, t_tile *tile);
+int		exit_with_esc_key(int esc_keycode);
+void	draw_32(t_id *id, t_image *img, int x, int y);
+void	exit_game(t_id *id);
 void	free_map_arr(t_map *map);
 #endif

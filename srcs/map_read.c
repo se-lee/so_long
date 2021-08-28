@@ -22,11 +22,13 @@ void	map_count_row_and_column(int fd, t_map *map)
 	}
 }
 
+
 void	map_malloc(int fd, t_map *map)
 {
 	int		i;
 
 	i = 0;
+	map->map_arr = NULL;
 	map_count_row_and_column(fd, map);
 	map->map_arr = (char **)malloc(sizeof(char *) * map->row_count);
 printf("row: %d, column: %d\n", map->row_count, map->column_count);

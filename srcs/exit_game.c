@@ -14,7 +14,7 @@ int	exit_with_esc_key(int esc_keycode)
 }
 
 /* exit with red cross button */
-void	exit_game(t_identifier *id)
+void	exit_game(t_id *id)
 {
 	mlx_key_hook(id->win, exit_with_esc_key, &id);
 	mlx_hook(id->win, 17, 0, exit_hook, 0);

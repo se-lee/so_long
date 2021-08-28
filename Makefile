@@ -23,8 +23,13 @@ RM		= rm -rf
 
 CC		= cc
 CFLAGS	= -g -fsanitize=address #-Wall -Wextra -Werror
-CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework Metal -framework MetalKit
+CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework OpenGL -framework AppKit
 #CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+
+#--
+#$(NAME): $(OBJ)
+#	$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+#--
 
 all:	init $(NAME)
 
