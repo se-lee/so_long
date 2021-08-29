@@ -86,9 +86,9 @@ typedef struct s_coordinate
 
 typedef struct s_player
 {
-	t_coordinate p_coordi;
-	int		p_move_count;
-//	t_image	p_image; ??
+	t_coordinate coordi;
+	int		move_count;
+	t_image	image;
 }	t_player;
 
 typedef struct s_collect
@@ -125,6 +125,11 @@ void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);
 void	map_draw_background(t_id *id, t_map *map, t_tile *tile);
 void	map_draw_wall_and_background(t_id *id, t_map *map, t_tile *tile);
+void 	map_get_player_coordinate(t_map *map, t_player *player);
+void	move_player(t_id *id);
+
+
+
 int		exit_with_esc_key(int esc_keycode);
 void	draw_32(t_id *id, t_image *img, int x, int y);
 void	exit_game(t_id *id);

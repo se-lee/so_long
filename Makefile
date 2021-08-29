@@ -14,6 +14,7 @@ SRC		=	map_read.c\
 			exit_game.c\
 			draw.c\
 			free.c\
+			player_move.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

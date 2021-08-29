@@ -30,8 +30,8 @@ void 	map_get_player_coordinate(t_map *map, t_player *player)
 		{
 			if (map->map_arr[i][j] == 'P')
 			{
-				player->p_coordi.x = j;
-				player->p_coordi.y = i;
+				player->coordi.x = j;
+				player->coordi.y = i;
 			}
 			j++;
 		}
