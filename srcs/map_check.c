@@ -1,64 +1,46 @@
 #include "../include/so_long.h"
 
-int		map_is_rectangular(t_map *map)
+int		map_is_rectangular(t_var_set *var)
 {
-	int	i;
+	int		width;
+	int		height;
+	
+	width = var->map.column_count;
+	height = var->map.row_count;
 
-	i = 0;
-	if (map->row_count == map->column_count)
+	if (width == height) //map is square
 		return (0);
-	while (map->map_arr[i])
-	{
-		if (map->column_count != ft_strlen(map->map_arr[i]))
-			return (0);
-		i++;
-	}
+/*
+how to check weird shaped maps?
+column count is different in each line
+*/
 	return (1);
 }
 
-int		map_is_walled(t_map *map)
+int		map_is_walled(t_var_set *var)
 {
-	int	i;
-	int	j;
-	
-	j = 0;
-	while (j < map->column_count)
-	{
-		if (map->map_arr[0][j] != '1' || map->map_arr[map->row_count - 1][j] != '1')
-			return (0);
-		j++;
-	}
-	i = 0;
-	if (map->row_count > 3)
-	{
-		while(map->map_arr[i])
-		{
-			if (map->map_arr[i][0] != '1' || map->map_arr[i][map->column_count - 1] != '1')
-				return (0);
-			i++;
-		}
-	}
+/*
+*/
+
+
+
+}
+
+int		map_has_correct_compo(t_var_set *var)
+{
+/*
+*/
 	return (1);
 }
 
-/* check if components are correct 1, 0, P, E, C */
-// int		map_compo_is_correct(t_map *map)
-// {
-	
-// }
 
-
-int		map_format_is_correct(t_map *map)
+int		map_format_is_correct(t_var_set *var)
 {
-	if (!map_is_rectangular(map))
-	{
-		ft_putendl_fd("Map is not rectangle", 1);
+	if (!map_is_rectangular(var))
 		return (0);
-	}
-	if (!map_is_walled(map))
-	{
-		ft_putendl_fd("Map is not walled", 1);
+	if (!map_is_walled(var))
 		return (0);
-	}
+	if (!map_has_correct_compo(var))
+		return (0);
 	return (1);
 }

@@ -1,95 +1,75 @@
 #include "../include/so_long.h"
 
-void	map_count_row_and_column(int fd, t_map *map)
-{
-	char	buff;
-	int		temp;
+// get size of map - count rows and columns
 
-	map->row_count = 0;
-	map->column_count = 0;
+void	map_count_row_column(t_var_set *var, int fd)
+{
+	int		temp;
+	char	buf;
+
 	temp = 0;
-	while (read(fd, &buff, 1) > 0)
+	var->map.column_count = 0;
+	var->map.row_count = 0;
+	while (read(fd, &buf, 1) > 0)
 	{
-		if (map->column_count < temp)
-			map->column_count = temp;
-		if (buff == '\n')
+		if (var->map.column_count < temp)
+			var->map.column_count = temp;
+		if (buf == '\n')
 		{
-			map->row_count++;
 			temp = 0;
+			var->map.row_count++;
 		}
 		else
 			temp++;
 	}
 }
 
-
-void	map_malloc(int fd, t_map *map)
+void	map_malloc(t_var_set *var, int fd)
 {
 	int		i;
 
 	i = 0;
-	map->map_arr = NULL;
-	map_count_row_and_column(fd, map);
-	map->map_arr = (char **)malloc(sizeof(char *) * map->row_count);
-printf("row: %d, column: %d\n", map->row_count, map->column_count);
-	while (i < map->row_count)
+	var->map.array = NULL;
+	map_count_row_column(var, fd);
+	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count);
+	while (i < var->map.row_count)
 	{
-		map->map_arr[i] = (char *)malloc(sizeof(char) * map->column_count + 1);
+		var->map.array[i] = (char *)malloc(sizeof(char) * var->map.column_count + 1);
 		i++;
 	}
 }
 
-void		map_read(char *map_filename, t_map *map)
+void	map_read_file(t_var_set *var, int fd)
 {
 	char	*line;
-	int		fd;
 	int		i;
 	int		j;
 
 	i = 0;
-	fd = open(map_filename, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
-		while (j < map->column_count + 1)
+		while (j < var->map.column_count + 1)
 		{
-			map->map_arr[i][j] = line[j];
+			var->map.array[i][j] = line[j];
 			j++;
 		}
 		i++;
 		free(line);
 	}
 	free(line);
-	close(fd);
 }
- 
-/*
-int main()
+
+int		map_read_and_check(t_var_set *var)
 {
-	t_map map;
-	int		i;
 	int		fd;
 
-	i = 0;
-	fd = open("map_ber/map.ber", O_RDONLY);
-	map_malloc(fd, &map);
-	close(fd);
-	map_read("map_ber/map.ber", &map);
-	printf("row: %d\n", map.row_count);
-	printf("column: %d\n", map.column_count);
-	// if (!map_format_is_correct(&map))
-	// 	return (0);
-	while (i < map.row_count)
-	{
-		printf("map[%d]: %s \n", i, map.map_arr[i]);
-		i++;
-	}
-	return (0);
-}
-*/
+	fd = open("path", O_RDONLY);
+	map_count_row_column(var, fd);
+	map_malloc(var, fd);
+	map_read_file(var, fd);
+	map_check();
 
-/*
-open / close を　Map_readにふくめてやるとうまく読み込めない。
-マップマロックを外に出して分けて実行したらうまくいった
-なんでだ？
-*/
+	close(fd);
+}
+

@@ -23,4 +23,5 @@ void	exit_game(t_id *id)
 /*
 when the window is closed with esc key, an error message comes up
 " quit unexpectedly "
+
 */

@@ -28,10 +28,10 @@ void 	map_get_player_coordinate(t_map *map, t_player *player)
 		j = 0;
 		while (j < map->column_count)
 		{
-			if (map->map_arr[i][j] == 'P')
+			if (map->matrix[i][j] == 'P')
 			{
-				player->coordi.x = j;
-				player->coordi.y = i;
+				player->coord.x = j;
+				player->coord.y = i;
 			}
 			j++;
 		}
@@ -50,7 +50,7 @@ void	map_get_collec_coordinate(t_map *map, t_collect *collect)
 		j = 0;
 		while (j < map->column_count)
 		{
-			if (map->map_arr[i][j] == 'C')
+			if (map->matrix[i][j] == 'C')
 			{
 				collect->c_coordi.x = j;
 				collect->c_coordi.y = i;
