@@ -1,6 +1,5 @@
 #include "../include/so_long.h"
 
-
 void	init_mlx_and_win(t_var_set *var)
 {
 	int	size_x;
@@ -17,5 +16,6 @@ void	init_player(t_var_set *var);
 void	init_game(t_var_set *var)
 {
 	init_mlx_and_win(var);
+	
 }
 

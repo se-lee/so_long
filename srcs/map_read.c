@@ -68,7 +68,7 @@ int		map_read_and_check(t_var_set *var)
 	map_count_row_column(var, fd);
 	map_malloc(var, fd);
 	map_read_file(var, fd);
-	map_check();
+	map_format_is_correct(var);
 
 	close(fd);
 }

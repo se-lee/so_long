@@ -7,9 +7,9 @@ int		map_is_rectangular(t_map *map)
 	i = 0;
 	if (map->row_count == map->column_count)
 		return (0);
-	while (map->matrix[i])
+	while (map->array[i])
 	{
-		if (map->column_count != ft_strlen(map->matrix[i]))
+		if (map->column_count != ft_strlen(map->array[i]))
 			return (0);
 		i++;
 	}
@@ -24,16 +24,16 @@ int		map_is_walled(t_map *map)
 	j = 0;
 	while (j < map->column_count)
 	{
-		if (map->matrix[0][j] != '1' || map->matrix[map->row_count - 1][j] != '1')
+		if (map->array[0][j] != '1' || map->array[map->row_count - 1][j] != '1')
 			return (0);
 		j++;
 	}
 	i = 0;
 	if (map->row_count > 3)
 	{
-		while(map->matrix[i])
+		while(map->array[i])
 		{
-			if (map->matrix[i][0] != '1' || map->matrix[i][map->column_count - 1] != '1')
+			if (map->array[i][0] != '1' || map->array[i][map->column_count - 1] != '1')
 				return (0);
 			i++;
 		}

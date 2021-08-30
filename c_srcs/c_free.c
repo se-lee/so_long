@@ -5,10 +5,10 @@ void	free_map_arr(t_map *map)
 	int	i;
 
 	i = 0;
-	while (map->matrix[i])
+	while (map->array[i])
 	{
-		free(map->matrix[i]);
+		free(map->array[i]);
 		i++;
 	}
-	free(map->matrix);
+	free(map->array);
 }

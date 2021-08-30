@@ -47,11 +47,11 @@ int	main()
 		j = 0;
 		while (j < map.column_count)
 		{
-			if (map.matrix[i][j] == '1')
+			if (map.array[i][j] == '1')
 				mlx_put_image_to_window(id.mlx, id.win, tile.wall.img_ptr, (j * TILE_SIZE) , (i * TILE_SIZE));
-			else if (map.matrix[i][j] == 'E')
+			else if (map.array[i][j] == 'E')
 				mlx_put_image_to_window(id.mlx, id.win, tile.exit.img_ptr, (j * TILE_SIZE), (i * TILE_SIZE));
-			else if (map.matrix[i][j] == 'P')
+			else if (map.array[i][j] == 'P')
 			{
 				mlx_put_image_to_window(id.mlx, id.win, player.image.img_ptr, (j * TILE_SIZE), (i * TILE_SIZE));
 				map_get_player_coordinate(&map, &player);

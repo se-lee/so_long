@@ -28,13 +28,13 @@ void	map_malloc(int fd, t_map *map)
 	int		i;
 
 	i = 0;
-	map->matrix = NULL;
+	map->array = NULL;
 	map_count_row_and_column(fd, map);
-	map->matrix = (char **)malloc(sizeof(char *) * map->row_count);
+	map->array = (char **)malloc(sizeof(char *) * map->row_count);
 printf("row: %d, column: %d\n", map->row_count, map->column_count);
 	while (i < map->row_count)
 	{
-		map->matrix[i] = (char *)malloc(sizeof(char) * map->column_count + 1);
+		map->array[i] = (char *)malloc(sizeof(char) * map->column_count + 1);
 		i++;
 	}
 }
@@ -53,7 +53,7 @@ void		map_read(char *map_filename, t_map *map)
 		j = 0;
 		while (j < map->column_count + 1)
 		{
-			map->matrix[i][j] = line[j];
+			map->array[i][j] = line[j];
 			j++;
 		}
 		i++;

@@ -91,9 +91,21 @@ typedef struct s_player
 typedef struct s_collect
 {
 	t_coord coord;
+	t_image	image;
 	int		count;
-//	t_image	c_image;??
 }	t_collect;
+
+/* linked list for collec */
+typedef struct s_clist
+{
+	t_clist *next;
+}	t_clist;
+
+typedef struct s_c_node
+{
+	int				content;
+	struct s_node	*next;
+}				t_node;
 
 typedef struct s_var_set
 {
@@ -106,7 +118,7 @@ typedef struct s_var_set
 
 /* initiate */
 void	init_game(t_var_set *var);
-
+int		map_format_is_correct(t_var_set *var);
 
 #endif
 

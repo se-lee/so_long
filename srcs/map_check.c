@@ -26,13 +26,28 @@ int		map_is_walled(t_var_set *var)
 
 }
 
+/* check components */
 int		map_has_correct_compo(t_var_set *var)
 {
-/*
-*/
+	int		i;
+	int		j;
+
+	i = 0;
+	while (var->map.array[i])
+	{
+		j = 0;
+		while (var->map.array[i][j])
+		{
+			if (var->map.array[i][j] != '0' || var->map.array[i][j] != '1'
+				|| var->map.array[i][j] != 'P' || var->map.array[i][j] != 'E'
+				|| var->map.array[i][j] != 'C')
+				return (0);
+			j++;
+		}
+		i++;
+	}
 	return (1);
 }
-
 
 int		map_format_is_correct(t_var_set *var)
 {

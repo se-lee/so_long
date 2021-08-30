@@ -18,9 +18,9 @@ int main()
 	map_read(path, &map);
 	id.win = mlx_new_window(id.mlx, TILE_SIZE * map.column_count, TILE_SIZE * map.row_count, "so_long");
 	i = 0;
-	while (map.matrix[i])
+	while (map.array[i])
 	{
-		printf("map[%i]:%p : %s\n", i, map.matrix[i], map.matrix[i]);
+		printf("map[%i]:%p : %s\n", i, map.array[i], map.array[i]);
 		i++;
 	}
 	map_draw_wall_and_background(&id, &map, &tile);
