@@ -43,7 +43,7 @@ void	init_game_img(t_var_set *var)
 	init_tile_img(var);
 	init_player_img(var);
 	init_collec_img(var);
-	map_put_to_win(var);
+//	map_put_to_win(var);
 // player_put_to_win(var);
 // collec_put_to_win(var);
 }

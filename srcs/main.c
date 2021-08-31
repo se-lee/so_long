@@ -4,6 +4,14 @@
 Your program must take as a first argument a map description file 
 with the .ber extension.
 */
+
+int	game_loop(t_var_set *var)
+{
+	map_put_to_win(var);
+	player_put_to_win(var);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	char	*map_path;
@@ -19,7 +27,7 @@ int	main(int argc, char **argv)
 		init_game_img (&var);
 	printf("start:{%d, %d}\n", var.player.x, var.player.y);	
 		mlx_hook(var.win, EVENT_KEY_PRESS, 1L<<0, &key_direction, &var);
-		mlx_loop_hook(var.mlx, &player_put_to_win, &var);
+		mlx_loop_hook(var.mlx, &game_loop, &var);
 //		exit_game(&var);
 		mlx_loop(var.mlx);
 	}
