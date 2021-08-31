@@ -14,18 +14,26 @@
 # define BUFFER_SIZE 1
 
 /* keycode */
+# define KEY_ESC 53
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
-# define KEY_ESC 53
-# define KEY_ARROW_UP 126
-# define KEY_ARROW_DOWN 125
-# define KEY_ARROW_LEFT 123
-# define KEY_ARROW_RIGHT 124
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
 
-# define X_EVENT_KEY_PRESS	2
+# define EVENT_KEY_PRESS	2
+# define EVENT_KEY_EXIT		17
 
+/* TO BE ERASED LATER -- not working. why*/
+#if DEBUG
+#define debug(f, ...) f(__VA_ARGS__)
+#else
+#define debug(f, ...)
+#endif
+//debug(printf(""));
 
 /* assets / map files */
 
@@ -39,6 +47,7 @@ typedef struct s_image
 	int		size_line;
 	int		endian;
 }	t_image;
+// erase bpp, size_line, endian
 
 typedef struct s_map
 {	
@@ -47,22 +56,10 @@ typedef struct s_map
 	int		column_count;
 }	t_map;
 
-typedef struct s_map_compo
-{
-	int	wall;
-	int	free_space;
-	int	player_position;
-	int	exit_position;
-	int	collec_position;
-}	s_map_compo;
-
 typedef struct s_tile
 {
-	int		tile_width; // いらないかな
-	int		tile_height; //いらないかな
 	t_image	wall;
 	t_image	exit;
-	t_image	collect;
 	t_image	space;
 }		t_tile;
 
@@ -81,55 +78,55 @@ typedef struct s_coord
 	int		y;
 }	t_coord;
 
-typedef struct s_player
-{
-	t_coord			coord;
-	t_image			image;
-	int				move_count;
-}	t_player;
-
-typedef struct s_collect
-{
-	t_coord coord;
-	t_image	image;
-	int		count;
-}	t_collect;
-
 /* linked list for collec */
 typedef struct s_clist
 {
-	t_clist *next;
+	struct s_clist *next;
 }	t_clist;
 
-typedef struct s_c_node
+
+// typedef struct s_c_node
+// {
+// 	int				content;
+// 	struct s_node	*next;
+// }				t_node;
+
+typedef struct s_player
 {
-	int				content;
-	struct s_node	*next;
-}				t_node;
+	t_coord		coord;
+	t_image		image;
+	int			move_count;
+}	t_player;
+
+typedef struct s_collec
+{
+	t_coord 	coord;
+	t_image		image;
+	int			count;
+}	t_collec;
 
 typedef struct s_var_set
 {
 	void		*mlx;
 	void		*win;
 	t_player 	player;
+	t_collec	collec;
 	t_map		map;
-	t_tile		tile;	
+	t_tile		tile;
 }	t_var_set;
 
 /* initiate */
+int		get_next_line(int fd, char **line);
 void	init_game(t_var_set *var);
+void	init_game_img(t_var_set *var);
 int		map_format_is_correct(t_var_set *var);
+void	map_read_and_check(t_var_set *var);
+void	map_put_to_win(t_var_set *var);
+void	player_put_to_win(t_var_set *var);
 
 #endif
 
 /*
-maybe make a struct the includes all structs above 
-because passing too many variables are tiring
-and i can only declare upto 5 variables in a function/
-
-/* Map functions */
-/*
-int		get_next_line(int fd, char **line);
 int		map_format_is_correct(t_map *map);
 void	map_malloc(int fd, t_map *map);
 void	map_read(char *map_filename, t_map *map);

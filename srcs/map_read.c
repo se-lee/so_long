@@ -31,7 +31,8 @@ void	map_malloc(t_var_set *var, int fd)
 	i = 0;
 	var->map.array = NULL;
 	map_count_row_column(var, fd);
-	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count);
+debug(printf, "row: %d, column: %d\n", var->map.row_count, var->map.column_count);
+	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count + 1);
 	while (i < var->map.row_count)
 	{
 		var->map.array[i] = (char *)malloc(sizeof(char) * var->map.column_count + 1);
@@ -39,13 +40,15 @@ void	map_malloc(t_var_set *var, int fd)
 	}
 }
 
-void	map_read_file(t_var_set *var, int fd)
+void	map_read_file(t_var_set *var, char *map_file)
 {
 	char	*line;
 	int		i;
 	int		j;
+	int		fd;
 
 	i = 0;
+	fd = open(map_file, O_RDONLY);
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
@@ -58,18 +61,32 @@ void	map_read_file(t_var_set *var, int fd)
 		free(line);
 	}
 	free(line);
-}
-
-int		map_read_and_check(t_var_set *var)
-{
-	int		fd;
-
-	fd = open("path", O_RDONLY);
-	map_count_row_column(var, fd);
-	map_malloc(var, fd);
-	map_read_file(var, fd);
-	map_format_is_correct(var);
-
 	close(fd);
 }
 
+void		map_read_and_check(t_var_set *var)
+{
+	int		fd;
+	char	*path;
+
+	path = "./map/map.ber";
+	fd = open(path, O_RDONLY);
+	map_malloc(var, fd);
+	close(fd);
+	map_read_file(var, path);
+//	map_format_is_correct(var);
+//	map_count_compo(var);
+	int	i = 0;
+	while (var->map.array[i])
+	{
+		printf("arr[%d]: %s\n", i, var->map.array[i]);
+		i++;
+	}
+	close(fd);
+}
+
+/*
+when the program is executed, it runs without any problem
+but when i execute repeatedly, sometimes it gets segfault
+did i malloc wrong? malloc or gnl?
+*/

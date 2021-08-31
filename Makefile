@@ -4,17 +4,14 @@ HEADER	= so_long.h
 INC		= include
 SRC_DIR	= srcs
 OBJ_DIR	= objs
-SRC		=	map_read.c\
-			main.c\
+SRC		=	main.c\
 			map_check.c\
-			map_draw.c\
-			map_coordinates.c\
-			move_key.c\
+			map_read.c\
+			map_render.c\
+			player_render.c\
+			init_game.c\
+			init_img.c\
 			get_next_line.c\
-			exit_game.c\
-			draw.c\
-			free.c\
-			player_move.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
@@ -23,11 +20,13 @@ LIBFT_FILE = $(LIBFT)/libft.a
 RM		= rm -rf
 
 CC		= cc
-CFLAGS	= -g -fsanitize=address #-Wall -Wextra -Werror
+CFLAGS	= -g -fsanitize=address #-D DEBUG #-Wall -Wextra -Werror
 CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework OpenGL -framework AppKit
 #CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
 #--
+# debug(printf, "[pb_count(merge)]: %d \n", count.pb_count);
+
 #$(NAME): $(OBJ)
 #	$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 #--
