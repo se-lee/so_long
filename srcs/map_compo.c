@@ -11,7 +11,8 @@ void	map_count_compo(t_var_set *var, char c)
 }
 
 void	map_get_player_coord(t_var_set *var)
-{	int		i;
+{	
+	int		i;
 	int		j;
 
 	i = 0;
@@ -24,6 +25,7 @@ void	map_get_player_coord(t_var_set *var)
 			{
 				var->player.x = j;
 				var->player.y = i;
+			printf("player:{%d, %d}", var->player.x, var->player.y);
 			}
 			j++;
 		}

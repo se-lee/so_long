@@ -74,6 +74,7 @@ void		map_read_and_check(t_var_set *var, char *map_path)
 	close(fd);
 	map_read_file(var, map_path);
 	map_format_is_correct(var);
+	map_get_player_coord(var);
 //	map_compo_count_get_coord(var);
 
 	int	i = 0;

@@ -8,6 +8,7 @@ SRC		=	main.c\
 			map_check.c\
 			map_read.c\
 			map_render.c\
+			map_compo.c\
 			player_render.c\
 			init_game.c\
 			init_img.c\

@@ -11,8 +11,8 @@ int		key_event(t_var_set *var, int keycode)
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
 		move_right(var);
 	else if (keycode == KEY_ESC)
-		exit_game(var);
-//	else
+		exit(0);
+	//	else
 		//do nothing
 	return (0);
 }

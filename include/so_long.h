@@ -146,6 +146,7 @@ void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
 int		player_put_to_win(t_var_set *var);
 int		key_event(t_var_set *var, int keycode);
+void	map_get_player_coord(t_var_set *var);
 
 /* movement */
 void	move_up(t_var_set *var);
