@@ -1,10 +1,17 @@
 #include "../include/so_long.h"
 
-void	player_put_to_win(t_var_set *var)
+int	player_put_to_win(t_var_set *var)
 {
 	mlx_put_image_to_window(var->mlx, var->win,
-		var->player.image.ptr, var->player.coord.x * TILE_SIZE,
-		var->player.coord.y * TILE_SIZE);
+		var->player.image.ptr, var->player.x * TILE_SIZE,
+		var->player.y * TILE_SIZE);
+	return (0);
+}
+
+void	player_draw(t_var_set *var)
+{
+	mlx_put_image_to_window(var->mlx, var->win, var->player.image.ptr,
+		var->player.x, var->player.y);
 }
 
 

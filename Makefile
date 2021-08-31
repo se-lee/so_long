@@ -12,6 +12,9 @@ SRC		=	main.c\
 			init_game.c\
 			init_img.c\
 			get_next_line.c\
+			key_event.c\
+			move_player.c\
+			exit_game.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

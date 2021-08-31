@@ -64,18 +64,18 @@ void	map_read_file(t_var_set *var, char *map_file)
 	close(fd);
 }
 
-void		map_read_and_check(t_var_set *var)
+void		map_read_and_check(t_var_set *var, char *map_path)
 {
 	int		fd;
-	char	*path;
 
-	path = "./map/map.ber";
-	fd = open(path, O_RDONLY);
+	// path = "./map/map.ber";
+	fd = open(map_path, O_RDONLY);
 	map_malloc(var, fd);
 	close(fd);
-	map_read_file(var, path);
-//	map_format_is_correct(var);
-//	map_count_compo(var);
+	map_read_file(var, map_path);
+	map_format_is_correct(var);
+//	map_compo_count_get_coord(var);
+
 	int	i = 0;
 	while (var->map.array[i])
 	{

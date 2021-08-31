@@ -1,15 +1,18 @@
--- include
-libft
-get_next_line
+【備忘録】
+
+エラーケースのハンドル
+・プレーヤーの数：1人に限定する
+・Exitの数：１に限定する
+
+・マップMalloc fail
+・イメージファイル呼び込み失敗
+・マップファイルの呼び込み失敗
 
 
-
-
+///////////////////////////////////////////
 -- window
 • The management of your window must remain smooth: changing to another window, minimizing, etc.
 • You will use a 2D view (top-down or profile).
-
-
 
 -- map
 • The map will be constructed with 3 components walls, collectibles, and free space.
@@ -28,12 +31,6 @@ P for the player’s starting position.
 ◦ The map must be rectangular.
 ◦ You must be able to parse any kind of map, as long as it respects the rules of the map.
 
-- MAP: steps to take
-open map file
-read map file
-count columns and rows
-
-read each line of the texted map (get next line)
 
 malloc map
 parse map 
@@ -45,15 +42,10 @@ parse map
 know the locations of each composition
 	--> give coordinates
 
-
 draw map
-	--> apply each image according to the component
-		()
-
+	--> apply each image according to the component		()
 
 -- key input
-
-
 
 -- movement
 • At every move the current number of movements must be displayed in the shell.

@@ -52,11 +52,9 @@ int		map_is_walled(t_var_set *var)
 			i++;
 		}
 	}
-
 	return (1);
 }
 
-/* check components */
 int		map_has_correct_compo(t_var_set *var)
 {
 	int		i;
@@ -78,6 +76,7 @@ int		map_has_correct_compo(t_var_set *var)
 	}
 	return (1);
 }
+
 
 int		map_format_is_correct(t_var_set *var)
 {

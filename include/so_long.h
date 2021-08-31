@@ -54,6 +54,10 @@ typedef struct s_map
 	char	**array;
 	int		row_count;
 	int		column_count;
+	int		p_count;
+	int		c_count;
+	int		e_count;
+
 }	t_map;
 
 typedef struct s_tile
@@ -91,18 +95,36 @@ typedef struct s_clist
 // 	struct s_node	*next;
 // }				t_node;
 
+typedef struct s_spr
+{
+	t_image	imgx[5][3];
+	int		frame;
+	int		frame_max;
+	int		step;
+	int		x;
+	int		y;
+	int		x0;
+	int		y0;
+	int		i;
+	int		dir;
+	int		move;
+}	t_spr;
+
 typedef struct s_player
 {
 	t_coord		coord;
+	int			x;
+	int			y;
 	t_image		image;
+	t_spr		spr; //???
 	int			move_count;
 }	t_player;
 
 typedef struct s_collec
 {
-	t_coord 	coord;
 	t_image		image;
-	int			count;
+	int			x;
+	int			y;
 }	t_collec;
 
 typedef struct s_var_set
@@ -120,9 +142,18 @@ int		get_next_line(int fd, char **line);
 void	init_game(t_var_set *var);
 void	init_game_img(t_var_set *var);
 int		map_format_is_correct(t_var_set *var);
-void	map_read_and_check(t_var_set *var);
+void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
-void	player_put_to_win(t_var_set *var);
+int		player_put_to_win(t_var_set *var);
+int		key_event(t_var_set *var, int keycode);
+
+/* movement */
+void	move_up(t_var_set *var);
+void	move_down(t_var_set *var);
+void	move_left(t_var_set *var);
+void	move_right(t_var_set *var);
+
+void	exit_game(t_var_set *var);
 
 #endif
 
