@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //#include "minilibx_mms_20210621/mlx.h"
-#include "./minilibx_mms_20200219"
+#include "./minilibx_mms_20200219/mlx.h"
 
 #define X_EVENT_KEY_PRESS	2
 #define X_EVENT_KEY_RELEASE	3
@@ -33,7 +33,7 @@ int		key_press(int keycode, t_param *param)
 {
 	static int a = 0;
 
-	if (keycode == KEY_W) //when W is pressed
+	if (keycode == KEY_W) 
 		param->x++;
 	else if (keycode == KEY_S)
 		param->x--;

@@ -25,7 +25,7 @@ void	map_get_player_coord(t_var_set *var)
 			{
 				var->player.x = j;
 				var->player.y = i;
-			printf("player:{%d, %d}", var->player.x, var->player.y);
+//			printf("player:{%d, %d}\n", var->player.x, var->player.y);
 			}
 			j++;
 		}

@@ -27,7 +27,7 @@
 # define EVENT_KEY_PRESS	2
 # define EVENT_KEY_EXIT		17
 
-/* TO BE ERASED LATER -- not working. why*/
+/* not working. why what did i do wrong */
 #if DEBUG
 #define debug(f, ...) f(__VA_ARGS__)
 #else
@@ -47,7 +47,7 @@ typedef struct s_image
 	int		size_line;
 	int		endian;
 }	t_image;
-// erase bpp, size_line, endian
+// erase bpp, size_line, endian？？
 
 typedef struct s_map
 {	
@@ -75,14 +75,6 @@ typedef struct s_move
 	int	right_count;
 }	t_move;
 
-// coordinate struct
-typedef struct s_coord
-{
-	int		x;
-	int		y;
-}	t_coord;
-
-/* linked list for collec */
 typedef struct s_clist
 {
 	struct s_clist *next;
@@ -112,7 +104,6 @@ typedef struct s_spr
 
 typedef struct s_player
 {
-	t_coord		coord;
 	int			x;
 	int			y;
 	t_image		image;
@@ -145,8 +136,12 @@ int		map_format_is_correct(t_var_set *var);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
 int		player_put_to_win(t_var_set *var);
-int		key_event(t_var_set *var, int keycode);
+int		key_direction(int keycode, t_var_set *var);
 void	map_get_player_coord(t_var_set *var);
+
+/* test funct */
+int		key_press(int keycode, t_var_set *var);
+
 
 /* movement */
 void	move_up(t_var_set *var);

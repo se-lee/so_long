@@ -17,8 +17,11 @@ int	main(int argc, char **argv)
 		init_game(&var);
 	printf("mlx: %p, win: %p \n", var.mlx, var.win);
 		init_game_img (&var);
-		mlx_hook(var.win, EVENT_KEY_PRESS, 1L<<0, &key_event, &var);
+	printf("start:{%d, %d}\n", var.player.x, var.player.y);	
+		mlx_hook(var.win, EVENT_KEY_PRESS, 1L<<0, &key_direction, &var);
 		mlx_loop_hook(var.mlx, &player_put_to_win, &var);
+//		exit_game(&var);
 		mlx_loop(var.mlx);
 	}
 }
+//	mlx_hook(win, X_EVENT_KEY_PRESS, 1L<<0, &key_press, &param);
