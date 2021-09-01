@@ -68,12 +68,13 @@ void		map_read_and_check(t_var_set *var, char *map_path)
 {
 	int		fd;
 
-	// path = "./map/map.ber";
 	fd = open(map_path, O_RDONLY);
 	map_malloc(var, fd);
 	close(fd);
 	map_read_file(var, map_path);
-	map_format_is_correct(var);
+	if (!map_format_is_correct(var))
+		exit(0);
+// if !map format is correct, error and exit
 	map_get_player_coord(var);
 //	map_compo_count_get_coord(var);
 
@@ -86,8 +87,3 @@ void		map_read_and_check(t_var_set *var, char *map_path)
 	close(fd);
 }
 
-/*
-when the program is executed, it runs without any problem
-but when i execute repeatedly, sometimes it gets segfault
-did i malloc wrong? malloc or gnl?
-*/

@@ -25,7 +25,6 @@ void	map_get_player_coord(t_var_set *var)
 			{
 				var->player.x = j;
 				var->player.y = i;
-//			printf("player:{%d, %d}\n", var->player.x, var->player.y);
 			}
 			j++;
 		}
@@ -36,4 +35,9 @@ void	map_get_player_coord(t_var_set *var)
 // void 	map_get_collec_coord();
 /*
 - need to store several coordinates of collectibles
+*/
+
+/*
+count the number of c
+make 
 */

@@ -5,13 +5,13 @@ int		key_direction(int keycode, t_var_set *var)
 	static int 	a = 0;
 
 	if (keycode == KEY_W || keycode == KEY_UP)
-		var->player.y--;
+		move_up(var);
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		var->player.y++;
+		move_down(var);
 	else if (keycode == KEY_A || keycode == KEY_LEFT)
-		var->player.x--;
+		move_left(var);
 	else if (keycode == KEY_D || keycode == KEY_RIGHT)
-		var->player.x++;
+		move_right(var);
 	else if (keycode == KEY_ESC)
 		exit(0);
 printf("player:{%d, %d}\n", var->player.x, var->player.y);

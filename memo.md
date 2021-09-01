@@ -1,7 +1,14 @@
-【備忘録】
+【備忘録/確認事項】
 
 ■ 実行するとSegfaultになるときと正常に動くときがある。
 	なぜ？フリー？の問題？ Or Mallocミス？
+
+■ still need to parse the map
+- when 'P' is not found -> error and quit
+- when 'E' is not found -> error and quit
+- when 'C' is not found -> error and quit
+
+
 
 ■ エラーケースのハンドル
 ・プレーヤーの数：1人に限定する
@@ -9,10 +16,14 @@
 ・マップ Malloc fail
 ・イメージファイル呼び込み失敗
 ・マップファイルの呼び込み失敗
+・The player goes outside the window/map. 
 
 ・Free
 
 ■ スタートとエンディングの絵？
+
+■ ゲームルール
+・全部集めないと終了できなくする
 
 
 ///////////////////////////////////////////

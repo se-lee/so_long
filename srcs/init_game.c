@@ -11,11 +11,3 @@ void	init_mlx_and_win(t_var_set *var)
 	var->win = mlx_new_window(var->mlx, size_x, size_y, "so_long");
 }
 
-void	init_player(t_var_set *var);
-
-void	init_game(t_var_set *var)
-{
-	init_mlx_and_win(var);
-	//init_player(var);
-}
-

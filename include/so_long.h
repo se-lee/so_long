@@ -35,8 +35,6 @@
 #endif
 //debug(printf(""));
 
-/* assets / map files */
-
 typedef struct s_image
 {
 	void	*ptr;
@@ -47,7 +45,7 @@ typedef struct s_image
 	int		size_line;
 	int		endian;
 }	t_image;
-// erase bpp, size_line, endian？？
+// erase bpp, size_line, endian??
 
 typedef struct s_map
 {	
@@ -57,7 +55,6 @@ typedef struct s_map
 	int		p_count;
 	int		c_count;
 	int		e_count;
-
 }	t_map;
 
 typedef struct s_tile
@@ -67,55 +64,23 @@ typedef struct s_tile
 	t_image	space;
 }		t_tile;
 
-typedef struct s_move
-{
-	int	up_count;
-	int	down_count;
-	int	left_count;
-	int	right_count;
-}	t_move;
-
-typedef struct s_clist
-{
-	struct s_clist *next;
-}	t_clist;
-
-
-// typedef struct s_c_node
-// {
-// 	int				content;
-// 	struct s_node	*next;
-// }				t_node;
-
-typedef struct s_spr
-{
-	t_image	imgx[5][3];
-	int		frame;
-	int		frame_max;
-	int		step;
-	int		x;
-	int		y;
-	int		x0;
-	int		y0;
-	int		i;
-	int		dir;
-	int		move;
-}	t_spr;
+/*
+Linked list for collec ?
+*/
 
 typedef struct s_player
 {
 	int			x;
 	int			y;
-	t_image		image;
-	t_spr		spr; //???
 	int			move_count;
+	t_image		image;
 }	t_player;
 
 typedef struct s_collec
 {
-	t_image		image;
 	int			x;
 	int			y;
+	t_image		image;
 }	t_collec;
 
 typedef struct s_var_set
@@ -128,19 +93,16 @@ typedef struct s_var_set
 	t_tile		tile;
 }	t_var_set;
 
-/* initiate */
 int		get_next_line(int fd, char **line);
 void	init_game(t_var_set *var);
 void	init_game_img(t_var_set *var);
+void	init_mlx_and_win(t_var_set *var);
 int		map_format_is_correct(t_var_set *var);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
 int		player_put_to_win(t_var_set *var);
 int		key_direction(int keycode, t_var_set *var);
 void	map_get_player_coord(t_var_set *var);
-
-/* test funct */
-int		key_press(int keycode, t_var_set *var);
 
 
 /* movement */
@@ -150,8 +112,24 @@ void	move_left(t_var_set *var);
 void	move_right(t_var_set *var);
 
 void	exit_game(t_var_set *var);
+int		exit_hook();
+
+
+/* test funct */
+int		key_press(int keycode, t_var_set *var);
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 int		map_format_is_correct(t_map *map);
@@ -164,7 +142,6 @@ int		move_player(t_id *id, t_player *player);
 int		move_direction(t_player *player, int keycode);
 
 int		exit_with_esc_key(int esc_keycode);
-void	draw_32(t_id *id, t_image *img, int x, int y);
 void	exit_game(t_id *id);
 void	free_map_arr(t_map *map);
 */
