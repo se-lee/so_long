@@ -6,10 +6,10 @@ void	map_put_to_win(t_var_set *var)
 	int		j;
 
 	i = 0;
-	while (var->map.array[i])
+	while (i < var->map.row_count)
 	{
 		j = 0;
-		while (var->map.array[i][j])
+		while (j < var->map.column_count)
 		{
 			if (var->map.array[i][j] == '1')
 				mlx_put_image_to_window(var->mlx, var->win,

@@ -120,17 +120,6 @@ int		key_press(int keycode, t_var_set *var);
 
 #endif
 
-
-
-
-
-
-
-
-
-
-
-
 /*
 int		map_format_is_correct(t_map *map);
 void	map_malloc(int fd, t_map *map);

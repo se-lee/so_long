@@ -2,8 +2,6 @@
 
 int		key_direction(int keycode, t_var_set *var)
 {
-	static int 	a = 0;
-
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(var);
 	else if (keycode == KEY_S || keycode == KEY_DOWN)

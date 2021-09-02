@@ -23,7 +23,7 @@ LIBFT_FILE = $(LIBFT)/libft.a
 RM		= rm -rf
 
 CC		= cc
-CFLAGS	= -g -fsanitize=address #-D DEBUG #-Wall -Wextra -Werror
+CFLAGS	= -g -fsanitize=address -D DEBUG -Wall -Wextra -Werror
 CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework OpenGL -framework AppKit
 #CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
@@ -32,6 +32,7 @@ CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework Op
 
 #$(NAME): $(OBJ)
 #	$(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
 #--
 
 all:	init $(NAME)
@@ -40,7 +41,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBFT)/libft.h
 	$(CC) $(CFLAGS) -c $< -Ilibft -o $@
 
 $(NAME):	$(OBJS) $(LIBFT_FILE)
-	$(CC) $(CLFAGS) $(CLIB) $(SRCS) -I $(INC) $(LIBFT_FILE) -o $(NAME)
+	$(CC) $(CFLAGS) $(CLIB) $(SRCS) -I $(INC) $(LIBFT_FILE) -o $(NAME)
 #install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
 
 $(LIBFT_FILE):	init

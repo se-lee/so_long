@@ -13,6 +13,7 @@ int		map_is_rectangular(t_var_set *var)
 /*
 check weird shaped maps - 
 	when column count is different in each line
+	get the maximum number of column and compare each line
 */
 	return (1);
 }
@@ -21,7 +22,7 @@ check weird shaped maps -
 // for rows in between, check the first and last char
 int		map_is_walled(t_var_set *var)
 {
-	int 	i;
+//	int 	i;
 	int		j;
 	int		row;
 	int		col;

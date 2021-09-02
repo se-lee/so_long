@@ -3,11 +3,10 @@
 ■ 実行するとSegfaultになるときと正常に動くときがある。
 	なぜ？フリー？の問題？ Or Mallocミス？
 
-■ still need to parse the map
+■ マップもうちょっとちゃんとやる。
 - when 'P' is not found -> error and quit
 - when 'E' is not found -> error and quit
 - when 'C' is not found -> error and quit
-
 
 
 ■ エラーケースのハンドル
@@ -18,12 +17,13 @@
 ・マップファイルの呼び込み失敗
 ・The player goes outside the window/map. 
 
-・Free
+・Free... i want to be free....
 
 ■ スタートとエンディングの絵？
 
 ■ ゲームルール
 ・全部集めないと終了できなくする
+
 
 
 ///////////////////////////////////////////

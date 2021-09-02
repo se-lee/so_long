@@ -1,7 +1,5 @@
 #include "../include/so_long.h"
 
-// get size of map - count rows and columns
-
 void	map_count_row_column(t_var_set *var, int fd)
 {
 	int		temp;
@@ -12,7 +10,7 @@ void	map_count_row_column(t_var_set *var, int fd)
 	var->map.row_count = 0;
 	while (read(fd, &buf, 1) > 0)
 	{
-		if (var->map.column_count < temp)
+		if (var->map.column_count < temp) //max column count
 			var->map.column_count = temp;
 		if (buf == '\n')
 		{
@@ -32,10 +30,10 @@ void	map_malloc(t_var_set *var, int fd)
 	var->map.array = NULL;
 	map_count_row_column(var, fd);
 debug(printf, "row: %d, column: %d\n", var->map.row_count, var->map.column_count);
-	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count + 1);
+	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count);
 	while (i < var->map.row_count)
 	{
-		var->map.array[i] = (char *)malloc(sizeof(char) * var->map.column_count + 1);
+		var->map.array[i] = (char *)malloc(sizeof(char) * var->map.column_count);
 		i++;
 	}
 }
@@ -52,9 +50,9 @@ void	map_read_file(t_var_set *var, char *map_file)
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
-		while (j < var->map.column_count + 1)
+		while (j < var->map.column_count)
 		{
-			var->map.array[i][j] = line[j];
+			var->map.array[i][j] = line[j]; //?
 			j++;
 		}
 		i++;
@@ -76,14 +74,18 @@ void		map_read_and_check(t_var_set *var, char *map_path)
 		exit(0);
 // if !map format is correct, error and exit
 	map_get_player_coord(var);
-//	map_compo_count_get_coord(var);
-
 	int	i = 0;
-	while (var->map.array[i])
+	while (i < var->map.row_count) //var->map.array[i])
 	{
-		printf("arr[%d]: %s\n", i, var->map.array[i]);
+	int	j = 0;
+		printf("arr[%d]:", i);
+		while (j < var->map.column_count)
+		{
+			printf("%c", var->map.array[i][j]);
+			j++;
+		}
+		printf("\n");
 		i++;
 	}
 	close(fd);
 }
-
