@@ -27,7 +27,12 @@
 # define EVENT_KEY_PRESS	2
 # define EVENT_KEY_EXIT		17
 
-/* not working. why what did i do wrong */
+
+# define DIR_UP 1
+# define DIR_DOWN 2
+# define DIR_LEFT 3
+# define DIR_RIGHT 4
+
 #if DEBUG
 #define debug(f, ...) f(__VA_ARGS__)
 #else
@@ -110,6 +115,13 @@ void	move_up(t_var_set *var);
 void	move_down(t_var_set *var);
 void	move_left(t_var_set *var);
 void	move_right(t_var_set *var);
+void	move_to_directions(t_var_set *var, int direction);
+
+
+//int		player_touched_wall(t_var_set *var);
+int		player_touched_wall(t_var_set *var, int direction);
+
+
 
 void	exit_game(t_var_set *var);
 int		exit_hook();

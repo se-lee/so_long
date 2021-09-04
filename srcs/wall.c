@@ -31,10 +31,37 @@ map.array[i][j] とあれば
 下は map.arry[i + 1][j] に対応する文字が１かどうか確認する
 
 */
-int		player_touched_wall(t_var_set *var);
 
+/*
+int		player_touched_wall(t_var_set *var)
+{
+	int		i;
+	int		j;
+
+	i = var->player.y;
+	j = var->player.x;
+	if (var->map.array[i][j] == '1')
+		return (1);
+	return (0);
+}
+*/
+
+int		player_touched_wall(t_var_set *var, int direction)
+{
+	int		i;
+	int		j;
+	
+	i = var->player.y;
+	j = var->player.x;
+	return ((direction == DIR_UP && var->map.array[i - 1][j] == '1')
+		|| (direction == DIR_DOWN && var->map.array[i + 1][j] == '1')
+		|| (direction == DIR_LEFT && var->map.array[i][j - 1] == '1')
+		|| (direction == DIR_RIGHT && var->map.array[i][j + 1] == '1'));
+}
 
 int		player_touched_collec(t_var_set *var);
+
+
 
 /*
  Eの位置とかぶったら試合終了
