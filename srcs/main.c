@@ -14,6 +14,8 @@ int	game_loop(t_var_set *var)
 {
 	map_put_to_win(var);
 	player_put_to_win(var);
+	collec_is_collected(var);
+	// all_collected_exit_game(var); // ??
 	return (0);
 }
 
@@ -29,7 +31,7 @@ int	main(int argc, char **argv)
 		map_read_and_check(&var, map_path);
 		init_mlx_and_win(&var);
 		init_game_img (&var);
-printf("start:{%d, %d}\n", var.player.x, var.player.y);	
+printf("start:{%d, %d}\n", var.player.x, var.player.y);
 		mlx_hook(var.win, EVENT_KEY_PRESS, 1L<<0, &key_direction, &var);
 		mlx_loop_hook(var.mlx, &game_loop, &var);
 		mlx_hook(var.win, EVENT_KEY_EXIT, 0, exit_hook, 0);

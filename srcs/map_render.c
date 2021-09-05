@@ -11,13 +11,19 @@ void	map_put_to_win(t_var_set *var)
 		j = 0;
 		while (j < var->map.column_count)
 		{
-			if (var->map.array[i][j] == '1')
+			if (i == var->player.y && j == var->player.x)
+				mlx_put_image_to_window(var->mlx, var->win,
+				var->player.image.ptr, var->player.x * TILE_SIZE,
+				var->player.y * TILE_SIZE);
+			else if (var->map.array[i][j] == '1')
 				mlx_put_image_to_window(var->mlx, var->win,
 					var->tile.wall.ptr, j * TILE_SIZE, i * TILE_SIZE);
-			else if (var->map.array[i][j] == '0' || var->map.array[i][j] == 'P'
-					|| var->map.array[i][j] == 'C')
+			else if (var->map.array[i][j] == '0' || var->map.array[i][j] == 'P')
 				mlx_put_image_to_window(var->mlx, var->win,
 					var->tile.space.ptr, j * TILE_SIZE, i * TILE_SIZE);
+			else if (var->map.array[i][j] == 'C')
+				mlx_put_image_to_window(var->mlx, var->win, var->collec.image.ptr,
+					j * TILE_SIZE, i * TILE_SIZE);
 			else if (var->map.array[i][j] == 'E')
 				mlx_put_image_to_window(var->mlx, var->win,
 					var->tile.exit.ptr, j * TILE_SIZE, i * TILE_SIZE);

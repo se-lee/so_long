@@ -31,13 +31,3 @@ void	map_get_player_coord(t_var_set *var)
 		i++;
 	}
 }
-
-// void 	map_get_collec_coord();
-/*
-- need to store several coordinates of collectibles
-*/
-
-/*
-count the number of c
-make 
-*/

@@ -27,7 +27,6 @@
 # define EVENT_KEY_PRESS	2
 # define EVENT_KEY_EXIT		17
 
-
 # define DIR_UP 1
 # define DIR_DOWN 2
 # define DIR_LEFT 3
@@ -117,32 +116,19 @@ void	move_left(t_var_set *var);
 void	move_right(t_var_set *var);
 void	move_to_directions(t_var_set *var, int direction);
 
-
-//int		player_touched_wall(t_var_set *var);
 int		player_touched_wall(t_var_set *var, int direction);
+int		player_touched_collec(t_var_set *var);
+void	collec_is_collected(t_var_set *var);
+int		player_touched_exit(t_var_set *var);
 
-
+int		player_collected_all(t_var_set *var);
+int		all_collected_exit_game(t_var_set *var);
 
 void	exit_game(t_var_set *var);
 int		exit_hook();
-
 
 /* test funct */
 int		key_press(int keycode, t_var_set *var);
 
 #endif
 
-/*
-int		map_format_is_correct(t_map *map);
-void	map_malloc(int fd, t_map *map);
-void	map_read(char *map_filename, t_map *map);
-void	map_draw_background(t_id *id, t_map *map, t_tile *tile);
-void	map_draw_wall_and_background(t_id *id, t_map *map, t_tile *tile);
-void 	map_get_player_coordinate(t_map *map, t_player *player);
-int		move_player(t_id *id, t_player *player);
-int		move_direction(t_player *player, int keycode);
-
-int		exit_with_esc_key(int esc_keycode);
-void	exit_game(t_id *id);
-void	free_map_arr(t_map *map);
-*/

@@ -15,7 +15,9 @@ SRC		=	main.c\
 			get_next_line.c\
 			key_event.c\
 			move_player.c\
-			wall.c\
+			is_touched.c\
+			collec.c\
+			exit.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
