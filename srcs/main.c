@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:26 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 17:07:48 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 17:10:57 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	game_loop(t_var_set *var)
 	map_put_to_win(var);
 	player_put_to_win(var);
 	collec_is_collected(var);
-//	all_collected_exit_game(var);
+	all_collected_exit_game(var);
 	return (0);
 }
 /* 'all_collected_exit_game(var);' 

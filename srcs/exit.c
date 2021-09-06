@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:52 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 15:36:33 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 17:12:26 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,13 @@ int	player_collected_all(t_var_set *var)
 	return (1);
 }
 
-int	all_collected_exit_game(t_var_set *var)
+void	all_collected_exit_game(t_var_set *var)
 {
-	if (player_collected_all(var) && player_touched_exit(var))
-		ft_putendl_fd("all collectibles are collected", 1);
-	return (0);
+	if (player_collected_all(var))// && player_touched_exit(var))
+		ft_putendl_fd("collected all", 1);
+	// return (0);
 }
+// void	check_game_status(t_var_set *var)
+// {
+// 	all_
+// }
