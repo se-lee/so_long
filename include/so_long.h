@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 17:12:33 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 19:04:21 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	map_check_format(t_var_set *var);
 int		map_compo_is_correct(char c);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
-int		player_put_to_win(t_var_set *var);
+void	player_put_to_win(t_var_set *var);
 int		key_input(int keycode, t_var_set *var);
 void	map_get_player_coord(t_var_set *var);
 
@@ -127,7 +127,7 @@ int		player_touched_exit(t_var_set *var);
 int		collect_put_to_win(t_var_set *var);
 void	map_count_compo(t_var_set *var, char c);
 int		player_collected_all(t_var_set *var);
-void	all_collected_exit_game(t_var_set *var);
+int		all_collected_exit_game(t_var_set *var);
 
 void	exit_game(t_var_set *var);
 int		exit_hook(void);

@@ -7,9 +7,7 @@ OBJ_DIR	= objs
 SRC		=	main.c\
 			map_check.c\
 			map_read.c\
-			map_render.c\
 			map_compo.c\
-			player_render.c\
 			init_game.c\
 			init_img.c\
 			get_next_line.c\
@@ -17,6 +15,7 @@ SRC		=	main.c\
 			move_player.c\
 			is_touched.c\
 			collec.c\
+			render.c\
 			exit.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))

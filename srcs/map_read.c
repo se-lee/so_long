@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 16:56:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 17:59:21 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ void	map_count_row_column(t_var_set *var, int fd)
 			var->map.column_count = temp;
 		if (buf == '\n')
 		{
-			temp = 0;
 			var->map.row_count++;
+			temp = 0;
 		}
 		else
 			temp++;
 	}
+	printf("row: %d \n", var->map.row_count);
 }
 
 void	map_malloc(t_var_set *var, int fd)
@@ -60,6 +61,8 @@ void	map_read_file(t_var_set *var, char *map_file)
 
 	i = 0;
 	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+		error_message_exit("Error: File open failed");
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;

@@ -6,11 +6,18 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:50:02 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 14:50:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 19:04:14 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	player_put_to_win(t_var_set *var)
+{
+	mlx_put_image_to_window(var->mlx, var->win,
+		var->player.image.ptr, var->player.x * TILE_SIZE,
+		var->player.y * TILE_SIZE);
+}
 
 void	map_put_to_win(t_var_set *var)
 {

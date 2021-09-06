@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:26 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 17:10:57 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 19:04:54 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	game_loop(t_var_set *var)
 	map_put_to_win(var);
 	player_put_to_win(var);
 	collec_is_collected(var);
-	all_collected_exit_game(var);
 	return (0);
 }
 /* 'all_collected_exit_game(var);' 
@@ -46,6 +45,7 @@ int	main(int argc, char **argv)
 		init_game_img (&var);
 		mlx_hook(var.win, EVENT_KEY_PRESS, 1L << 0, &key_input, &var);
 		mlx_loop_hook(var.mlx, &game_loop, &var);
+//		mlx_loop_hook(var.mlx, &player_collected_all, &var);
 		mlx_hook(var.win, EVENT_EXIT, 0, exit_hook, 0);
 		mlx_loop(var.mlx);
 	}
