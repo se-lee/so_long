@@ -9,21 +9,21 @@ void	init_tile_img(t_var_set *var)
 		"./assets_xpm/test_green32.xpm", &(var->tile.space.width),
 		&(var->tile.space.height));
 	var->tile.exit.ptr = mlx_xpm_file_to_image(var->mlx,
-		"./assets_xpm/test_stripe32.xpm", &(var->tile.exit.width),
+		"./assets_xpm/house32.xpm", &(var->tile.exit.width),
 		&(var->tile.exit.height));
 }
 
 void	init_player_img(t_var_set *var)
 {
 	var->player.image.ptr = mlx_xpm_file_to_image(var->mlx,
-		"./assets_xpm/test_red32.xpm", &(var->player.image.width),
+		"./assets_xpm/short_hair_girl_32.xpm", &(var->player.image.width),
 		&(var->player.image.height));
 }
 
 void	init_collec_img(t_var_set *var)
 {
 	var->collec.image.ptr = mlx_xpm_file_to_image(var->mlx,
-		"./assets_xpm/cookie32.xpm", &(var->collec.image.width),
+		"./assets_xpm/cookie_32.xpm", &(var->collec.image.width),
 		&(var->collec.image.height));
 }
 
