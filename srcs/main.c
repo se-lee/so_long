@@ -14,6 +14,7 @@ int	game_loop(t_var_set *var)
 {
 	map_put_to_win(var);
 	player_put_to_win(var);
+//	collect_put_to_win(var);
 	collec_is_collected(var);
 	// all_collected_exit_game(var); // ??
 	return (0);

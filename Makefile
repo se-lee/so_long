@@ -18,6 +18,7 @@ SRC		=	main.c\
 			is_touched.c\
 			collec.c\
 			exit.c\
+			collec_render.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
@@ -27,8 +28,8 @@ RM		= rm -rf
 
 CC		= cc
 CFLAGS	= -g -fsanitize=address -D DEBUG -Wall -Wextra -Werror
-CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework OpenGL -framework AppKit
-#CLIB	= -I ./minilibx_mms_20210621 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+#CLIB	= -I ./minilibx_mms_20200219 -L ./minilibx_mms_20200219 -lmlx -framework OpenGL -framework AppKit
+CLIB	= -I ./minilibx_opengl_20191021 -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 
 #--
 # debug(printf, "[pb_count(merge)]: %d \n", count.pb_count);

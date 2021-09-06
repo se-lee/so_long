@@ -10,4 +10,3 @@ void	init_mlx_and_win(t_var_set *var)
 	var->mlx = mlx_init();
 	var->win = mlx_new_window(var->mlx, size_x, size_y, "so_long");
 }
-

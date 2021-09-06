@@ -23,7 +23,7 @@ void	init_player_img(t_var_set *var)
 void	init_collec_img(t_var_set *var)
 {
 	var->collec.image.ptr = mlx_xpm_file_to_image(var->mlx,
-		"./assets_xpm/test_orange32.xpm", &(var->collec.image.width),
+		"./assets_xpm/cookie32.xpm", &(var->collec.image.width),
 		&(var->collec.image.height));
 }
 

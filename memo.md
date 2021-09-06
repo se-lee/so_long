@@ -9,7 +9,6 @@
 - when 'E' is not found -> error and quit
 - when 'C' is not found -> error and quit
 
-
 ■ エラーケースのハンドル
 ・プレーヤーの数：1人に限定する
 ・Exitの数：１に限定する
