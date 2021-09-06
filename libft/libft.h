@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:37:43 by selee             #+#    #+#             */
-/*   Updated: 2021/08/03 20:26:40 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/06 14:55:35 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void			ft_lstadd_back(t_node **lst, t_node *new);
 void			ft_lstdelone(t_node *lst, void (*del)(int));
 void			ft_lstclear(t_node **lst, void (*del)(int));
 void			ft_lstiter(t_node *lst, void (*f)(int));
-t_node			*ft_lstmap(t_node *lst, int(*f)(int),
-					void (*del)(int));
+t_node			*ft_lstmap(t_node *lst, int *(*f)(int), void (*del)(int));
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/06 14:41:39 by selee             #+#    #+#             */
+/*   Updated: 2021/09/06 14:41:59 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 void	clean_free(void **data)
@@ -67,5 +79,3 @@ int	get_next_line(int fd, char **line)
 	}
 	return (return_result(new_line, &stores[fd], line));
 }
-
-

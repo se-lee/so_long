@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
+/*   Updated: 2021/09/06 16:07:23 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -39,23 +51,12 @@
 # define GAME_PLAY	2
 # define GAME_END	3
 
-/* 提出前に消す */
-#if DEBUG
-#define debug(f, ...) f(__VA_ARGS__)
-#else
-#define debug(f, ...)
-#endif
-//debug(printf(""));
-
 typedef struct s_image
 {
 	void	*ptr;
 	char	*addr;
 	int		height;
 	int		width;
-//	int		bits_per_pixel; 
-//	int		size_line;
-//	int		endian;
 }	t_image;
 
 typedef struct s_map
@@ -94,18 +95,18 @@ typedef struct s_var_set
 {
 	void		*mlx;
 	void		*win;
-	t_player 	player;
+	t_player	player;
 	t_collec	collec;
 	t_map		map;
 	t_tile		tile;
 }	t_var_set;
 
-
 int		get_next_line(int fd, char **line);
 void	init_game(t_var_set *var);
 void	init_game_img(t_var_set *var);
 void	init_mlx_and_win(t_var_set *var);
-int		map_format_is_correct(t_var_set *var);
+//int		map_format_is_correct(t_var_set *var);
+void	map_check_format(t_var_set *var);
 int		map_compo_is_correct(char c);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
@@ -124,14 +125,14 @@ int		player_touched_collec(t_var_set *var);
 void	collec_is_collected(t_var_set *var);
 int		player_touched_exit(t_var_set *var);
 int		collect_put_to_win(t_var_set *var);
-
+void	map_count_compo(t_var_set *var, char c);
 int		player_collected_all(t_var_set *var);
 int		all_collected_exit_game(t_var_set *var);
 
 void	exit_game(t_var_set *var);
-int		exit_hook();
+int		exit_hook(void);
+void	error_message_exit(char *message);
 
 int		key_press(int keycode, t_var_set *var);
 
 #endif
-

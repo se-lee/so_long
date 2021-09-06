@@ -1,21 +1,9 @@
 【備忘録/確認事項】
 
-■ 実行するとSegfaultになるときと正常に動くときがある。
-	なぜ？フリー？の問題？ Or Mallocミス？ ---> FIXED
-
-
-■ マップもうちょっとちゃんとやる。
-- when 'P' is not found -> error and quit
-- when 'E' is not found -> error and quit
-- when 'C' is not found -> error and quit
-
 ■ エラーケースのハンドル
-・プレーヤーの数：1人に限定する
-・Exitの数：１に限定する
 ・マップ Malloc fail
 ・イメージファイル呼び込み失敗
 ・マップファイルの呼び込み失敗
-・The player goes outside the window/map. 
 
 ・Free... i want to be free....
 
@@ -23,7 +11,6 @@
 
 ■ ゲームルール
 ・全部集めないと終了できなくする
-
 
 ///////////////////////////////////////////
 -- window
@@ -95,11 +82,4 @@ Collision
 - red cross button
 - when fish is caught?
 
-
-
 -----------------
-
-• The game doesn’t need to be real-time.???
-
-
-

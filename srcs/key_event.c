@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_event.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/06 14:40:31 by selee             #+#    #+#             */
+/*   Updated: 2021/09/06 14:43:59 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-int		key_input(int keycode, t_var_set *var)
+int	key_input(int keycode, t_var_set *var)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_to_directions(var, DIR_UP);
