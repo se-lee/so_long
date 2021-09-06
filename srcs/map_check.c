@@ -18,11 +18,9 @@ check weird shaped maps -
 	return (1);
 }
 
-// check the first and last row
-// for rows in between, check the first and last char
 int		map_is_walled(t_var_set *var)
 {
-//	int 	i;
+	// int 	i;
 	int		j;
 	int		row;
 	int		col;
@@ -75,24 +73,24 @@ int		map_has_correct_compo(t_var_set *var)
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int		map_format_is_correct(t_var_set *var)
 {
 	if (!map_is_rectangular(var))
 	{
-	printf("not rectangular\n");
+		ft_putendl_fd("Error: Map is not rectangular", 2);
 		return (0);
 	}
 	// if (!map_has_correct_compo(var))
 	// {
-	// printf("compo not correct\n");
+	// 	ft_putendl_fd("Error: Invalid composition", 2);
 	// 	return (0);
 	// }
 	if (!map_is_walled(var))
 	{
-	printf("not walled\n");
+		ft_putendl_fd("Error: Map is not walled", 2);
 		return (0);
 	}
 	return (1);

@@ -1,5 +1,17 @@
 #include "../include/so_long.h"
 
+void	init_map_value(t_var_set *var)
+{
+	var->map.p_count = 0;
+	var->map.c_count = 0;
+	var->map.e_count = 0;
+}
+
+void	init_player_value(t_var_set *var)
+{
+	var->player.move_count = 0;
+}
+
 void	init_mlx_and_win(t_var_set *var)
 {
 	int	size_x;
@@ -9,4 +21,11 @@ void	init_mlx_and_win(t_var_set *var)
 	size_y = var->map.row_count * TILE_SIZE;
 	var->mlx = mlx_init();
 	var->win = mlx_new_window(var->mlx, size_x, size_y, "so_long");
+}
+
+void	init_game(t_var_set *var)
+{
+	init_map_value(var);
+	init_player_value(var);
+	init_mlx_and_win(var);
 }

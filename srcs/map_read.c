@@ -29,11 +29,12 @@ void	map_malloc(t_var_set *var, int fd)
 	i = 0;
 	var->map.array = NULL;
 	map_count_row_column(var, fd);
-debug(printf, "row: %d, column: %d\n", var->map.row_count, var->map.column_count);
-	var->map.array = (char **)malloc(sizeof(char *) * var->map.row_count);
+	var->map.array = (char **)malloc(sizeof(char *)
+		* var->map.row_count);
 	while (i < var->map.row_count)
 	{
-		var->map.array[i] = (char *)malloc(sizeof(char) * var->map.column_count);
+		var->map.array[i] = (char *)malloc(sizeof(char)
+			* var->map.column_count);
 		i++;
 	}
 }
@@ -52,7 +53,10 @@ void	map_read_file(t_var_set *var, char *map_file)
 		j = 0;
 		while (j < var->map.column_count)
 		{
-			var->map.array[i][j] = line[j]; //?
+			// if (map_compo_is_correct(line[j]))
+				var->map.array[i][j] = line[j];
+			// else
+			// 	ft_putendl_fd("Error: Invalid composition", 2);
 			j++;
 		}
 		i++;

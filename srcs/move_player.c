@@ -37,4 +37,5 @@ void	move_to_directions(t_var_set *var, int direction)
 		else if (direction == DIR_RIGHT)
 			move_right(var);
 	}
+	printf("step: %d \n", var->player.move_count);
 }

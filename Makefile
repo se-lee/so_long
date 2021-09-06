@@ -18,7 +18,6 @@ SRC		=	main.c\
 			is_touched.c\
 			collec.c\
 			exit.c\
-			collec_render.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))

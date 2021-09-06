@@ -26,13 +26,18 @@
 
 /* event */
 # define EVENT_KEY_PRESS	2
-# define EVENT_KEY_EXIT		17
+# define EVENT_EXIT			17
 
 /* direction */
 # define DIR_UP 1
 # define DIR_DOWN 2
 # define DIR_LEFT 3
 # define DIR_RIGHT 4
+
+/* game status */
+# define GAME_START	1
+# define GAME_PLAY	2
+# define GAME_END	3
 
 /* 提出前に消す */
 #if DEBUG
@@ -95,15 +100,17 @@ typedef struct s_var_set
 	t_tile		tile;
 }	t_var_set;
 
+
 int		get_next_line(int fd, char **line);
 void	init_game(t_var_set *var);
 void	init_game_img(t_var_set *var);
 void	init_mlx_and_win(t_var_set *var);
 int		map_format_is_correct(t_var_set *var);
+int		map_compo_is_correct(char c);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_put_to_win(t_var_set *var);
 int		player_put_to_win(t_var_set *var);
-int		key_direction(int keycode, t_var_set *var);
+int		key_input(int keycode, t_var_set *var);
 void	map_get_player_coord(t_var_set *var);
 
 void	move_up(t_var_set *var);
@@ -116,8 +123,7 @@ int		player_touched_wall(t_var_set *var, int direction);
 int		player_touched_collec(t_var_set *var);
 void	collec_is_collected(t_var_set *var);
 int		player_touched_exit(t_var_set *var);
-int	collect_put_to_win(t_var_set *var);
-
+int		collect_put_to_win(t_var_set *var);
 
 int		player_collected_all(t_var_set *var);
 int		all_collected_exit_game(t_var_set *var);
