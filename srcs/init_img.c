@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:39:31 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 14:42:49 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 00:14:16 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_tile_img(t_var_set *var)
 {
 	var->tile.wall.ptr = mlx_xpm_file_to_image(var->mlx,
-			"./assets_xpm/sakura32.xpm", &(var->tile.wall.width),
+			"./assets_xpm/sunflower32.xpm", &(var->tile.wall.width),
 			&(var->tile.wall.height));
 	var->tile.space.ptr = mlx_xpm_file_to_image(var->mlx,
 			"./assets_xpm/grass32.xpm", &(var->tile.space.width),

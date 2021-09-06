@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 17:59:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 00:32:29 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	map_count_row_column(t_var_set *var, int fd)
 		else
 			temp++;
 	}
-	printf("row: %d \n", var->map.row_count);
 }
 
 void	map_malloc(t_var_set *var, int fd)
@@ -84,6 +83,8 @@ void	map_read_and_check(t_var_set *var, char *map_path)
 	int		fd;
 
 	fd = open(map_path, O_RDONLY);
+	init_map_value(var);
+printf("p1: %d\n", var->map.p_count);
 	map_malloc(var, fd);
 	close(fd);
 	map_read_file(var, map_path);

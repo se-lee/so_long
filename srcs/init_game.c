@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:39:23 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 14:42:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 00:32:13 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	init_mlx_and_win(t_var_set *var)
 
 void	init_game(t_var_set *var)
 {
-	init_map_value(var);
 	init_player_value(var);
 	init_mlx_and_win(var);
 }

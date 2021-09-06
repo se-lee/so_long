@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 19:04:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 00:32:43 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	map_put_to_win(t_var_set *var);
 void	player_put_to_win(t_var_set *var);
 int		key_input(int keycode, t_var_set *var);
 void	map_get_player_coord(t_var_set *var);
+void	init_map_value(t_var_set *var);
 
 void	move_up(t_var_set *var);
 void	move_down(t_var_set *var);
