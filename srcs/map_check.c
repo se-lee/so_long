@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:29 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 18:59:47 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 03:31:19 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+int		map_check_file_extension(char *filename, char *ext)
+{
+	int	i;
+	int	j;
+
+	if (ext[0] != '.')
+		error_message_exit("Error: Invalid file extension");
+	i = ft_strlen(filename) - ft_strlen(ext);
+	if (i < 1 || filename[i] != '.')
+		error_message_exit("Error: Invalid file extension");
+	j = 0;
+	while (filename[i + j] && ext[j])
+	{
+		if (filename[i + j] != ext[j])
+			error_message_exit("Error: Invalide file extension");
+		j++;
+	}
+	return (1);
+}
 
 int	map_is_rectangular(t_var_set *var)
 {

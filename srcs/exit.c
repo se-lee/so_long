@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:52 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 18:59:07 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 03:53:36 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int	player_collected_all(t_var_set *var)
 		// 	i++;
 		// }
 
-int	all_collected_exit_game(t_var_set *var)
+void	all_collected_exit_game(t_var_set *var)
 {
-	if (player_collected_all(var) && player_touched_exit(var))
+	if (player_touched_exit(var))
 	{
-		ft_putendl_fd("collected all", 1);
+		if (player_collected_all(var))
+			ft_putendl_fd("collected all", 1);
 	}
-	return (0);
 }

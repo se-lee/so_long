@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 00:32:29 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 03:31:40 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	map_read_and_check(t_var_set *var, char *map_path)
 {
 	int		fd;
 
+	map_check_file_extension(map_path, ".ber");
 	fd = open(map_path, O_RDONLY);
 	init_map_value(var);
 printf("p1: %d\n", var->map.p_count);

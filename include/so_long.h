@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 00:32:43 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 03:33:49 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,8 @@ int		player_touched_exit(t_var_set *var);
 int		collect_put_to_win(t_var_set *var);
 void	map_count_compo(t_var_set *var, char c);
 int		player_collected_all(t_var_set *var);
-int		all_collected_exit_game(t_var_set *var);
+void	all_collected_exit_game(t_var_set *var);
+int		map_check_file_extension(char *filename, char *ext);
 
 void	exit_game(t_var_set *var);
 int		exit_hook(void);
