@@ -3,35 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:26 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 03:53:45 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 16:34:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-/*
-Your program must take as a first argument a map description file 
-with the .ber extension.
-*/
 
 int	exit_hook(void)
 {
 	exit(0);
 }
 
+/*
 int	game_loop(t_var_set *var)
 {
 	map_put_to_win(var);
 	player_put_to_win(var);
 	collec_is_collected(var);
 	all_collected_exit_game(var);
+	if (var->status != GAME_PLAY)
+		display_message(var);
 	return (0);
 }
-/* 'all_collected_exit_game(var);' 
-inside game_loop results in all white window...*/
+*/
+
+int	game_loop(t_var_set *var)
+{
+	if (var->status == GAME_START)
+		put_start_messsage(var);
+	if (var->status == GAME_PLAY)
+	{
+		map_put_to_win(var);
+		player_put_to_win(var);
+		collec_is_collected(var);
+		all_collected_exit_game(var);
+	}
+	else if (var->status == GAME_CONTINUE)
+		put_continue_messsage(var);
+	else if (var->status == GAME_END)
+		put_end_messsage(var);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -39,6 +54,7 @@ int	main(int argc, char **argv)
 	t_var_set	var;
 
 	map_path = argv[1];
+	var.status = GAME_START;
 	if (argc == 2)
 	{
 		map_read_and_check(&var, map_path);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:29 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 03:31:19 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 14:28:57 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int		map_check_file_extension(char *filename, char *ext)
+int	map_check_file_extension(char *filename, char *ext)
 {
 	int	i;
 	int	j;
@@ -47,7 +47,6 @@ int	map_is_rectangular(t_var_set *var)
 	}
 	return (1);
 }
-// error occurs when some lines are shorter than the max column count
 
 int	map_is_walled(t_var_set *var)
 {

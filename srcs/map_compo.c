@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_compo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 18:59:59 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 00:18:03 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 16:41:58 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	map_get_player_coord(t_var_set *var)
 		{
 			if (var->map.array[i][j] == 'P')
 			{
+				var->player.x_start = j;
+				var->player.y_start = i;
 				var->player.x = j;
 				var->player.y = i;
 			}

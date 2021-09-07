@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:52 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 14:17:45 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 16:42:37 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ int	player_collected_all(t_var_set *var)
 
 void	all_collected_exit_game(t_var_set *var)
 {
-	if (player_touched_exit(var) && player_collected_all(var))
-		ft_putendl_fd("collected all", 1);
+	if (player_touched_exit(var))
+	{
+		if (player_collected_all(var))
+			var->status = GAME_END;
+		else if (!(player_collected_all(var)))
+			var->status = GAME_CONTINUE;
+	}
 }

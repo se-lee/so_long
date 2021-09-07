@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 03:33:49 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 16:41:20 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@
 # include <stdio.h>
 # include <limits.h>
 # include "../minilibx_opengl_20191021/mlx.h"
-# include "../minilibx_mms_20200219/mlx.h"
 # include "../libft/libft.h"
 
 # define TILE_SIZE 32
 # define BUFFER_SIZE 1
 
 /* keycode */
-# define KEY_ESC 53
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_UP 126
-# define KEY_DOWN 125
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
+# define KEY_ESC 	53
+// # define KEY_RETURN 52
+// # define KEY_ENTER	76
+# define KEY_SPACE	49
+# define KEY_W 		13
+# define KEY_A		 0
+# define KEY_S		 1
+# define KEY_D		 2
+# define KEY_UP 	126
+# define KEY_DOWN 	125
+# define KEY_LEFT 	123
+# define KEY_RIGHT 	124
 
 /* event */
 # define EVENT_KEY_PRESS	2
@@ -47,9 +49,10 @@
 # define DIR_RIGHT 4
 
 /* game status */
-# define GAME_START	1
-# define GAME_PLAY	2
-# define GAME_END	3
+# define GAME_START		1
+# define GAME_PLAY		2
+# define GAME_CONTINUE	3
+# define GAME_END		4
 
 typedef struct s_image
 {
@@ -80,6 +83,8 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
+	int			x_start;
+	int			y_start;
 	int			move_count;
 	t_image		image;
 }	t_player;
@@ -99,6 +104,7 @@ typedef struct s_var_set
 	t_collec	collec;
 	t_map		map;
 	t_tile		tile;
+	int			status;
 }	t_var_set;
 
 int		get_next_line(int fd, char **line);
@@ -130,6 +136,11 @@ void	map_count_compo(t_var_set *var, char c);
 int		player_collected_all(t_var_set *var);
 void	all_collected_exit_game(t_var_set *var);
 int		map_check_file_extension(char *filename, char *ext);
+void	display_message(t_var_set *var);
+void	put_start_messsage(t_var_set *var);
+void	put_end_messsage(t_var_set *var);
+void	put_continue_messsage(t_var_set *var);
+void	player_resume_position(t_var_set *var);
 
 void	exit_game(t_var_set *var);
 int		exit_hook(void);

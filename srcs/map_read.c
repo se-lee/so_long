@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 14:19:16 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 14:23:34 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	map_read_and_check(t_var_set *var, char *map_path)
 	map_check_file_extension(map_path, ".ber");
 	fd = open(map_path, O_RDONLY);
 	init_map_value(var);
-printf("p1: %d\n", var->map.p_count);
 	map_malloc(var, fd);
 	close(fd);
 	map_read_file(var, map_path);
