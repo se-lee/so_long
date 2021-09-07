@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:39:23 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 18:25:57 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 18:46:34 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	init_map_value(t_var_set *var)
 {
+	var->map.array = NULL;
+	var->map.row_count = 0;
+	var->map.column_count = 0;
 	var->map.p_count = 0;
 	var->map.c_count = 0;
 	var->map.e_count = 0;

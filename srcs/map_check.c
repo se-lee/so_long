@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:29 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 18:16:23 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 19:14:15 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,16 @@ int	map_check_file_extension(char *filename, char *ext)
 	while (filename[i + j] && ext[j])
 	{
 		if (filename[i + j] != ext[j])
-			error_message_exit("Invalid file extension");
+			error_message_exit("Invalid file");
 		j++;
 	}
 	return (1);
 }
 
-int	map_is_rectangular(t_var_set *var)
+int	map_is_rectangular(t_var_set *var, int line_length)
 {
-	int		i;
-
-	if (var->map.row_count == var->map.column_count)
+	if (line_length != var->map.column_count)
 		return (0);
-	i = 0;
-	while (i < var->map.row_count)
-	{
-		if (ft_strlen(var->map.array[i]) != var->map.column_count)
-			return (0);
-		i++;
-	}
 	return (1);
 }
 
@@ -95,7 +86,7 @@ int	map_has_correct_compo(t_var_set *var)
 
 void	map_check_format(t_var_set *var)
 {
-	if (!map_is_rectangular(var))
+	if (var->map.row_count == var->map.column_count)
 		error_message_exit("Map is not rectangular");
 	if (!map_is_walled(var))
 		error_message_exit("Map is not walled");

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 18:23:49 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 19:08:55 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int		map_check_file_extension(char *filename, char *ext);
 void	map_check_format(t_var_set *var);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_count_compo(t_var_set *var, char c);
+int	map_is_rectangular(t_var_set *var, int line_length);
 
 /* move */
 void	move_up(t_var_set *var);

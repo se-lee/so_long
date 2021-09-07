@@ -5,18 +5,19 @@ INC		= include
 SRC_DIR	= srcs
 OBJ_DIR	= objs
 SRC		=	main.c\
-			map_check.c\
-			map_read.c\
-			map_compo.c\
-			init_game.c\
-			init_img.c\
-			get_next_line.c\
-			key_event.c\
-			player_move.c\
-			collision.c\
 			collect.c\
+			collision.c\
 			display.c\
 			exit.c\
+			free.c\
+			get_next_line.c\
+			init_game.c\
+			init_img.c\
+			key_event.c\
+			map_check.c\
+			map_compo.c\
+			map_read.c\
+			player_move.c\
 			player_position.c\
 
 SRCS	= $(addprefix $(SRC_DIR)/, $(SRC))
@@ -26,7 +27,7 @@ LIBFT_FILE = $(LIBFT)/libft.a
 RM		= rm -rf
 
 CC		= cc
-CFLAGS	= -g -D DEBUG -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS	= -g -D DEBUG -Wall -Wextra -Werror
 CLIB	= -I ./mlx -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
 all:	init $(NAME)
