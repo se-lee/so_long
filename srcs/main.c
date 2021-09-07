@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:26 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 18:40:49 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 19:33:30 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	game_loop(t_var_set *var)
 		put_player_to_win(var);
 		collec_is_collected(var);
 		player_at_exit(var);
+		put_step_count_to_win(var);
 	}
 	else if (var->status == GAME_CONTINUE)
 		put_continue_messsage(var);

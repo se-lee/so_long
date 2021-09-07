@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 19:08:55 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 19:33:21 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int		map_check_file_extension(char *filename, char *ext);
 void	map_check_format(t_var_set *var);
 void	map_read_and_check(t_var_set *var, char *map_path);
 void	map_count_compo(t_var_set *var, char c);
-int	map_is_rectangular(t_var_set *var, int line_length);
+int		map_is_rectangular(t_var_set *var, int line_length);
 
 /* move */
 void	move_up(t_var_set *var);
@@ -151,6 +151,7 @@ void	put_player_to_win(t_var_set *var);
 void	put_start_messsage(t_var_set *var);
 void	put_continue_messsage(t_var_set *var);
 void	put_end_messsage(t_var_set *var);
+void	put_step_count_to_win(t_var_set *var);
 
 /* exit */
 void	exit_game(t_var_set *var);
