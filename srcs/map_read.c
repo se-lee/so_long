@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 03:31:40 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 14:19:16 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,3 @@ printf("p1: %d\n", var->map.p_count);
 	map_check_format(var);
 	close(fd);
 }
-
-	// int	i = 0;
-	// while (i < var->map.row_count)
-	// {
-	// int	j = 0;
-	// 	printf("arr[%d]:", i);
-	// 	while (j < var->map.column_count)
-	// 	{
-	// 		printf("%c", var->map.array[i][j]);
-	// 		j++;
-	// 	}
-	// 	printf("\n");
-	// 	i++;
-	// }

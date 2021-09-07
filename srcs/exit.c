@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:52 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 03:53:36 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 14:17:45 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,15 @@ int	player_collected_all(t_var_set *var)
 		{
 			if (var->map.array[i][j] == 'C')
 				return (0);
+			j++;
 		}
+		i++;
 	}
 	return (1);
 }
-		// i = 0;
-		// while (i < var->map.row_count)
-		// {
-		// 	j = 0;
-		// 	printf("arr[%d]:", i);
-		// 	while (j < var->map.column_count)
-		// 	{
-		// 		printf("%c", var->map.array[i][j]);
-		// 		j++;
-		// 	}
-		// 	printf("\n");
-		// 	i++;
-		// }
 
 void	all_collected_exit_game(t_var_set *var)
 {
-	if (player_touched_exit(var))
-	{
-		if (player_collected_all(var))
-			ft_putendl_fd("collected all", 1);
-	}
+	if (player_touched_exit(var) && player_collected_all(var))
+		ft_putendl_fd("collected all", 1);
 }
