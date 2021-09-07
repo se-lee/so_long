@@ -6,29 +6,11 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:26 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 16:34:01 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 18:15:54 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-int	exit_hook(void)
-{
-	exit(0);
-}
-
-/*
-int	game_loop(t_var_set *var)
-{
-	map_put_to_win(var);
-	player_put_to_win(var);
-	collec_is_collected(var);
-	all_collected_exit_game(var);
-	if (var->status != GAME_PLAY)
-		display_message(var);
-	return (0);
-}
-*/
 
 int	game_loop(t_var_set *var)
 {
@@ -36,10 +18,10 @@ int	game_loop(t_var_set *var)
 		put_start_messsage(var);
 	if (var->status == GAME_PLAY)
 	{
-		map_put_to_win(var);
-		player_put_to_win(var);
+		put_map_to_win(var);
+		put_player_to_win(var);
 		collec_is_collected(var);
-		all_collected_exit_game(var);
+		player_at_exit(var);
 	}
 	else if (var->status == GAME_CONTINUE)
 		put_continue_messsage(var);
@@ -66,5 +48,5 @@ int	main(int argc, char **argv)
 		mlx_loop(var.mlx);
 	}
 	else if (argc < 2)
-		error_message_exit("Error: Invalid argument");
+		error_message_exit("Invalid argument");
 }

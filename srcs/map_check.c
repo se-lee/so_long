@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:29 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 14:28:57 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 18:16:23 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ int	map_check_file_extension(char *filename, char *ext)
 	int	j;
 
 	if (ext[0] != '.')
-		error_message_exit("Error: Invalid file extension");
+		error_message_exit("Invalid file extension");
 	i = ft_strlen(filename) - ft_strlen(ext);
-	if (i < 1 || filename[i] != '.')
-		error_message_exit("Error: Invalid file extension");
 	j = 0;
 	while (filename[i + j] && ext[j])
 	{
 		if (filename[i + j] != ext[j])
-			error_message_exit("Error: Invalide file extension");
+			error_message_exit("Invalid file extension");
 		j++;
 	}
 	return (1);
@@ -98,15 +96,15 @@ int	map_has_correct_compo(t_var_set *var)
 void	map_check_format(t_var_set *var)
 {
 	if (!map_is_rectangular(var))
-		error_message_exit("Error: Map is not rectangular");
+		error_message_exit("Map is not rectangular");
 	if (!map_is_walled(var))
-		error_message_exit("Error: Map is not walled");
+		error_message_exit("Map is not walled");
 	if (!map_has_correct_compo(var))
-		error_message_exit("Error: Invalid composition");
+		error_message_exit("Invalid composition");
 	if (var->map.p_count > 1 || var->map.p_count < 1)
-		error_message_exit("Error: Invalid number of players");
+		error_message_exit("Invalid number of players");
 	if (var->map.c_count < 1)
-		error_message_exit("Error: Invalid number of collectibles");
+		error_message_exit("Invalid number of collectibles");
 	if (var->map.e_count < 1)
-		error_message_exit("Error: Invalid number of exit");
+		error_message_exit("Invalid number of exit");
 }

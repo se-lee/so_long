@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collec.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 14:38:20 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 14:38:26 by selee            ###   ########lyon.fr   */
+/*   Created: 2021/09/07 18:19:02 by selee             #+#    #+#             */
+/*   Updated: 2021/09/07 18:19:52 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	collec_is_collected(t_var_set *var)
+void	free_map_arr(t_var_set *var)
 {
-	if (player_touched_collec(var))
-		var->map.array[var->player.y][var->player.x] = '0';
+	int	i;
+
+	i = 0;
+	while (i < var->map.row_count)
+	{
+		free(var->map.array[i]);
+		i++;
+	}
+	free(var->map.array);
 }

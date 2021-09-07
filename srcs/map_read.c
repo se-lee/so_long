@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:48:25 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 14:23:34 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 18:16:27 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	map_count_row_column(t_var_set *var, int fd)
 {
-	int		temp;
+	int		column_count;
 	char	buf;
 
-	temp = 0;
+	column_count = 0;
 	var->map.column_count = 0;
 	var->map.row_count = 0;
 	while (read(fd, &buf, 1) > 0)
 	{
-		if (var->map.column_count < temp)
-			var->map.column_count = temp;
 		if (buf == '\n')
 		{
 			var->map.row_count++;
-			temp = 0;
+			if (var->map.column_count < column_count)
+				var->map.column_count = column_count;
+			column_count = 0;
 		}
 		else
-			temp++;
+			column_count++;
 	}
 }
 
@@ -60,8 +60,6 @@ void	map_read_file(t_var_set *var, char *map_file)
 
 	i = 0;
 	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-		error_message_exit("Error: File open failed");
 	while (get_next_line(fd, &line) > 0)
 	{
 		j = 0;
@@ -84,11 +82,12 @@ void	map_read_and_check(t_var_set *var, char *map_path)
 
 	map_check_file_extension(map_path, ".ber");
 	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		error_message_exit("File open failed");
 	init_map_value(var);
 	map_malloc(var, fd);
 	close(fd);
 	map_read_file(var, map_path);
-	map_get_player_coord(var);
+	player_get_coord(var);
 	map_check_format(var);
-	close(fd);
 }

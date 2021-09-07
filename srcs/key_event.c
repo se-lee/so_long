@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:31 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 16:43:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 17:05:39 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	key_input(int keycode, t_var_set *var)
 	if (keycode == KEY_SPACE)
 	{
 		if (var->status == GAME_CONTINUE)
-		{
-			var->player.x = var->player.x_start;
-			var->player.y = var->player.y_start;
-		}
+			player_resume_position(var);
 		var->status = GAME_PLAY;
 	}
 	if (keycode == KEY_ESC)

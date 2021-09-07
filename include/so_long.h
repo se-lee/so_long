@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 16:41:20 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/07 18:23:49 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <limits.h>
-# include "../minilibx_opengl_20191021/mlx.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 
-# define TILE_SIZE 32
-# define BUFFER_SIZE 1
+# define TILE_SIZE		32
+# define BUFFER_SIZE	1
 
 /* keycode */
 # define KEY_ESC 	53
-// # define KEY_RETURN 52
-// # define KEY_ENTER	76
 # define KEY_SPACE	49
 # define KEY_W 		13
 # define KEY_A		 0
@@ -43,10 +41,10 @@
 # define EVENT_EXIT			17
 
 /* direction */
-# define DIR_UP 1
-# define DIR_DOWN 2
-# define DIR_LEFT 3
-# define DIR_RIGHT 4
+# define DIR_UP		1
+# define DIR_DOWN	2
+# define DIR_LEFT	3
+# define DIR_RIGHT	4
 
 /* game status */
 # define GAME_START		1
@@ -107,45 +105,55 @@ typedef struct s_var_set
 	int			status;
 }	t_var_set;
 
-int		get_next_line(int fd, char **line);
+/* init */
 void	init_game(t_var_set *var);
 void	init_game_img(t_var_set *var);
 void	init_mlx_and_win(t_var_set *var);
-//int		map_format_is_correct(t_var_set *var);
-void	map_check_format(t_var_set *var);
-int		map_compo_is_correct(char c);
-void	map_read_and_check(t_var_set *var, char *map_path);
-void	map_put_to_win(t_var_set *var);
-void	player_put_to_win(t_var_set *var);
-int		key_input(int keycode, t_var_set *var);
-void	map_get_player_coord(t_var_set *var);
 void	init_map_value(t_var_set *var);
 
+/* utils */
+int		get_next_line(int fd, char **line);
+void	free_map_arr(t_var_set *var);
+
+/* map */
+int		map_compo_is_correct(char c);
+int		map_check_file_extension(char *filename, char *ext);
+void	map_check_format(t_var_set *var);
+void	map_read_and_check(t_var_set *var, char *map_path);
+void	map_count_compo(t_var_set *var, char c);
+
+/* move */
 void	move_up(t_var_set *var);
 void	move_down(t_var_set *var);
 void	move_left(t_var_set *var);
 void	move_right(t_var_set *var);
 void	move_to_directions(t_var_set *var, int direction);
 
+/* player */
 int		player_touched_wall(t_var_set *var, int direction);
 int		player_touched_collec(t_var_set *var);
-void	collec_is_collected(t_var_set *var);
 int		player_touched_exit(t_var_set *var);
-int		collect_put_to_win(t_var_set *var);
-void	map_count_compo(t_var_set *var, char c);
-int		player_collected_all(t_var_set *var);
-void	all_collected_exit_game(t_var_set *var);
-int		map_check_file_extension(char *filename, char *ext);
-void	display_message(t_var_set *var);
-void	put_start_messsage(t_var_set *var);
-void	put_end_messsage(t_var_set *var);
-void	put_continue_messsage(t_var_set *var);
+void	player_get_coord(t_var_set *var);
 void	player_resume_position(t_var_set *var);
+void	player_at_exit(t_var_set *var);
 
+/* collec */
+void	collec_is_collected(t_var_set *var);
+int		collec_all_collected(t_var_set *var);
+
+/* key events */
+int		key_input(int keycode, t_var_set *var);
+
+/* display */
+void	put_map_to_win(t_var_set *var);
+void	put_player_to_win(t_var_set *var);
+void	put_start_messsage(t_var_set *var);
+void	put_continue_messsage(t_var_set *var);
+void	put_end_messsage(t_var_set *var);
+
+/* exit */
 void	exit_game(t_var_set *var);
 int		exit_hook(void);
 void	error_message_exit(char *message);
-
-int		key_press(int keycode, t_var_set *var);
 
 #endif
