@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:39:31 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 00:14:16 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 11:39:47 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_player_img(t_var_set *var)
 void	init_collec_img(t_var_set *var)
 {
 	var->collec.image.ptr = mlx_xpm_file_to_image(var->mlx,
-			"./assets_xpm/cookie_32.xpm", &(var->collec.image.width),
+			"./assets_xpm/cookie32.xpm", &(var->collec.image.width),
 			&(var->collec.image.height));
 }
 

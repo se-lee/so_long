@@ -13,7 +13,6 @@ SRC				=	main.c\
 					collect.c\
 					collision.c\
 					display.c\
-					display_str.c\
 					exit.c\
 					free.c\
 					get_next_line.c\
@@ -30,7 +29,7 @@ SRC_BONUS		=	main_bonus.c\
 					collect_bonus.c\
 					collision_bonus.c\
 					display_bonus.c\
-					display_str_bonus.c\
+					display_steps_bonus.c\
 					exit_bonus.c\
 					free_bonus.c\
 					get_next_line_bonus.c\

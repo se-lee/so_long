@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_str.c                                      :+:      :+:    :+:   */
+/*   display_steps_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:31:05 by selee             #+#    #+#             */
-/*   Updated: 2021/09/08 10:09:50 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 11:47:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void	put_step_count_to_win(t_var_set *var)
 {

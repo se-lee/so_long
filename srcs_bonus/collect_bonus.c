@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collect.c                                          :+:      :+:    :+:   */
+/*   collect_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:20 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 17:12:29 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 11:46:54 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void	collec_is_collected(t_var_set *var)
 {
