@@ -66,9 +66,6 @@ $(OBJ_BONUS_DIR)/%.o:	$(SRC_BONUS_DIR)/%.c $(LIBFT)/libft.h include_bonus/so_lon
 $(NAME):	$(OBJS) $(LIBFT_FILE)
 	$(CC) $(CFLAGS) $(CLIB) $(SRCS) -I $(INC) $(LIBFT_FILE) -o $(NAME)
 
-$(LIBFT_FILE):	init
-$(LIBFT_FILE_B): init_bonus
-
 init:
 	@ mkdir -p objs
 	$(MAKE) -C $(LIBFT)
@@ -93,7 +90,6 @@ re:
 bonus: init_bonus $(NAME_BONUS)
 
 init_bonus:
-	@ mkdir -p objs
 	@ mkdir -p objs_bonus
 	$(MAKE) -C $(LIBFT)
 	$(MAKE) -C $(MLX)
