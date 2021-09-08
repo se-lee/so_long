@@ -55,7 +55,7 @@ CC				=	cc
 CFLAGS			=	-g -D DEBUG -Wall -Wextra -Werror
 CLIB			=	-I ./mlx -L ./mlx -lmlx -framework OpenGL -framework AppKit
 
-all:	init $(NAME)
+all:	$(NAME)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBFT)/libft.h include/so_long.h
 	$(CC) $(CFLAGS) -c $< -Ilibft -o $@
@@ -63,7 +63,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c $(LIBFT)/libft.h include/so_long.h
 $(OBJ_BONUS_DIR)/%.o:	$(SRC_BONUS_DIR)/%.c $(LIBFT)/libft.h include_bonus/so_long_bonus.h
 	$(CC) $(CFLAGS) -c $< -Ilibft -o $@
 
-$(NAME):	$(OBJS) $(LIBFT_FILE)
+$(NAME):	init $(OBJS) $(LIBFT_FILE)
 	$(CC) $(CFLAGS) $(CLIB) $(SRCS) -I $(INC) $(LIBFT_FILE) -o $(NAME)
 
 init:
@@ -86,15 +86,16 @@ fclean:	clean
 re:
 	$(MAKE) fclean
 	$(MAKE) all
+	$(MAKE) bonus
 
-bonus: init_bonus $(NAME_BONUS)
+bonus: $(NAME_BONUS)
 
 init_bonus:
 	@ mkdir -p objs_bonus
 	$(MAKE) -C $(LIBFT)
 	$(MAKE) -C $(MLX)
 
-$(NAME_BONUS):	$(OBJS_BONUS) $(LIBFT_FILE)
+$(NAME_BONUS):	init_bonus $(OBJS_BONUS) $(LIBFT_FILE)
 	$(CC) $(CFLAGS) $(CLIB) $(SRCS_BONUS) -I $(INC_BONUS) $(LIBFT_FILE) -o $(NAME_BONUS)
 
 .PHONY:	all clean fclean re init re_lib
