@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:40:31 by selee             #+#    #+#             */
-/*   Updated: 2021/09/07 17:05:39 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 10:11:49 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	key_input(int keycode, t_var_set *var)
 		var->status = GAME_PLAY;
 	}
 	if (keycode == KEY_ESC)
+	{
+		free_map_arr(var);
 		exit(0);
+	}
 	return (0);
 }
