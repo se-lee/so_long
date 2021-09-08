@@ -6,15 +6,14 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:38:52 by selee             #+#    #+#             */
-/*   Updated: 2021/09/08 11:47:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 12:50:49 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
-int	exit_hook(t_var_set *var)
+int	exit_hook(void)
 {
-	free_map_arr(var);
 	exit(0);
 }
 
