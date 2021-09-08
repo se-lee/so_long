@@ -13,6 +13,7 @@ SRC				=	main.c\
 					collect.c\
 					collision.c\
 					display.c\
+					display_steps.c\
 					exit.c\
 					free.c\
 					get_next_line.c\

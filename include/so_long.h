@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:46 by selee             #+#    #+#             */
-/*   Updated: 2021/09/08 11:45:53 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 12:40:38 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void	put_player_to_win(t_var_set *var);
 void	put_start_messsage(t_var_set *var);
 void	put_continue_messsage(t_var_set *var);
 void	put_end_messsage(t_var_set *var);
+void	put_step_count_to_win(t_var_set *var);
 
 /* exit */
 void	exit_game(t_var_set *var);
