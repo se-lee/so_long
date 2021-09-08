@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
+/*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 14:51:28 by selee             #+#    #+#             */
-/*   Updated: 2021/09/06 14:51:29 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/09/08 12:02:19 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	move_to_directions(t_var_set *var, int direction)
 			move_left(var);
 		else if (direction == DIR_RIGHT)
 			move_right(var);
-	}
 	printf("step: %d \n", var->player.move_count);
+	}
 }
